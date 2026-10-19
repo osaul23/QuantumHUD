@@ -1229,7 +1229,7 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
       document.getElementById('hero-sub-status').textContent = `Polling ntfy.sh/${topic}...`;
 
       try {
-        const res = await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}/raw?poll=1&since=14d`, {
+        const res = await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}/json?poll=1&1limit=1`, {
           cache: 'no-store'
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
