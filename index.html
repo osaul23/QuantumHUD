@@ -422,4 +422,125 @@
     });
 
     function saveConfig() {
-      appConfig.topic = document.getElementById('cfg-topic').value.
+      appConfig.topic = document.getElementById('cfg-topic').value.trim();
+      appConfig.repo = document.getElementById('cfg-repo').value.trim();
+      appConfig.token = document.getElementById('cfg-token').value.trim();
+      
+      localStorage.setItem('app_topic', appConfig.topic);
+      localStorage.setItem('app_repo', appConfig.repo);
+      localStorage.setItem('app_token', appConfig.token);
+      
+      showToast("SETTINGS SAVED");
+    }
+
+    function switchPane(paneId) {
+      document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.screen-pane').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(`pane-${paneId}`).classList.add('active');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+
+    function copyLimit(val) {
+      const clean = val.replace(/[^0-9.]/g, '');
+      navigator.clipboard.writeText(clean);
+      showToast(`COPIED: ${clean}`);
+    }
+
+    function initQuantumSphere() {
+      const canvas = document.getElementById('quantum-sphere');
+      const ctx = canvas.getContext('2d');
+      let width = (canvas.width = 170);
+      let height = (canvas.height = 170);
+      
+      let rotationX = 0, rotationY = 0, isDragging = false, lastX = 0, lastY = 0;
+
+      canvas.addEventListener('pointerdown', e => { isDragging = true; lastX = e.clientX; lastY = e.clientY; });
+      window.addEventListener('pointermove', e => {
+        if (!isDragging) return;
+        rotationY += (e.clientX - lastX) * 0.008;
+        rotationX += (e.clientY - lastY) * 0.008;
+        lastX = e.clientX; lastY = e.clientY;
+      });
+      window.addEventListener('pointerup', () => isDragging = false);
+
+      let points = [];
+      let radius = 65;
+      for (let i = 0; i <= 28; i++) {
+        let theta = (i * Math.PI) / 28;
+        for (let j = 0; j <= 28; j++) {
+          let phi = (j * 2 * Math.PI) / 28;
+          points.push({
+            ox: radius * Math.sin(theta) * Math.cos(phi),
+            oy: radius * Math.cos(theta),
+            oz: radius * Math.sin(theta) * Math.sin(phi)
+          });
+        }
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        if (!isDragging) rotationY += 0.005;
+
+        let cosX = Math.cos(rotationX), sinX = Math.sin(rotationX);
+        let cosY = Math.cos(rotationY), sinY = Math.sin(rotationY);
+
+        points.forEach(p => {
+          let x1 = p.ox * cosY - p.oz * sinY;
+          let z1 = p.oz * cosY + p.ox * sinY;
+          let y1 = p.oy * cosX - z1 * sinX;
+          let z2 = z1 * cosX + p.oy * sinX;
+
+          let perspective = 220 / (220 + z2);
+          let px = width / 2 + x1 * perspective;
+          let py = height / 2 + y1 * perspective;
+          let alpha = Math.max(0.15, Math.min(0.85, (z2 + radius) / (2 * radius)));
+
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+          ctx.fillRect(px, py, 1.5, 1.5);
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    async function triggerRemoteWorkflow() {
+      if (!appConfig.token || !appConfig.repo) {
+        showToast("ENTER REPO & TOKEN");
+        switchPane('system');
+        return;
+      }
+      showToast("DISPATCHING RUN...");
+      try {
+        const res = await fetch(`https://api.github.com/repos/${appConfig.repo}/actions/workflows/friday_deployment.yml/dispatches`, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Authorization': `Bearer ${appConfig.token}`,
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ ref: 'main' })
+        });
+
+        if (res.status === 204) {
+          showToast("DISPATCH SUCCESS ✓");
+        } else {
+          const errText = await res.text();
+          console.error("GitHub API Error:", res.status, errText);
+          throw new Error(`HTTP ${res.status}`);
+        }
+      } catch (err) {
+        showToast(`FAIL: ${err.message}`);
+      }
+    }
+  </script>
+</body>
+</html>
