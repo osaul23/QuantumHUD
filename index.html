@@ -507,7 +507,7 @@
           <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">Telemetry &amp; Automation</div>
           <div class="text-base font-medium text-white mt-0.5">Uplink Configuration</div>
           <p class="text-xs text-[#8E8E93] mt-1 leading-relaxed">
-            Stored locally on this iPhone (`localStorage`). Used solely to poll your `ntfy.sh` feed and dispatch `run_engine.yml`.
+            Stored locally on this iPhone (`localStorage`). Used solely to poll your `ntfy.sh` feed and dispatch `friday_deployment.yml`.
           </p>
         </div>
 
@@ -1352,7 +1352,7 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
 
       try {
         const [owner, repo] = repoPath.split('/');
-        const res = await fetch(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/actions/workflows/run_engine.yml/dispatches`, {
+        const res = await fetch(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/actions/workflows/friday_deployment.yml/dispatches`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${pat}`,
