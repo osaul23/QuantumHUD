@@ -7,7 +7,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Value Engine - Quantum Minimalist</title>
 
-  <!-- Apple System Font & Tabular Monospace -->
   <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&family=SF+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -44,7 +43,7 @@
     #quantum-canvas-container {
       position: relative;
       width: 100%;
-      height: 240px;
+      height: 220px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -53,20 +52,20 @@
     }
 
     #quantum-sphere {
-      width: 200px;
-      height: 200px;
+      width: 170px;
+      height: 170px;
       cursor: grab;
     }
 
     .sphere-caption {
       position: absolute;
-      bottom: 8px;
+      bottom: 4px;
       font-family: 'SF Mono', monospace;
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: 1.5px;
       color: var(--text-muted);
       text-transform: uppercase;
-      opacity: 0.7;
+      opacity: 0.6;
       pointer-events: none;
     }
 
@@ -75,7 +74,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: calc(100vh - 240px);
+      height: calc(100vh - 220px);
       padding-bottom: var(--safe-bottom);
     }
 
@@ -85,14 +84,14 @@
       background: rgba(118, 118, 128, 0.12);
       border-radius: 9px;
       padding: 2px;
-      margin: 0 16px 16px 16px;
+      margin: 0 16px 14px 16px;
     }
 
     .seg-btn {
       flex: 1;
-      padding: 7px 0;
+      padding: 6px 0;
       text-align: center;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       color: var(--text-muted);
       border-radius: 7px;
@@ -130,7 +129,7 @@
       -webkit-backdrop-filter: blur(28px);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 18px;
+      padding: 16px;
       margin-bottom: 12px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
@@ -139,11 +138,11 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .ticker-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: -0.3px;
       color: var(--accent-white);
@@ -160,7 +159,7 @@
 
     .score-badge {
       font-family: 'SF Mono', monospace;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--accent-white);
       background: rgba(255,255,255,0.08);
@@ -168,19 +167,14 @@
       border-radius: 20px;
     }
 
-    /* Data Grid & Telemetry */
     .telemetry-row {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
       font-family: 'SF Mono', monospace;
       border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 12px;
-      margin-bottom: 12px;
-    }
-
-    .telemetry-group span {
-      display: block;
+      padding-top: 10px;
+      margin-bottom: 10px;
     }
 
     .tel-label {
@@ -188,25 +182,26 @@
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      display: block;
     }
 
     .tel-value {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--accent-white);
       margin-top: 2px;
+      display: block;
     }
 
     .tel-value.highlight {
-      color: #30d158; /* Apple green */
+      color: #30d158;
     }
 
-    /* Action Buttons */
     .action-row {
       display: flex;
       gap: 8px;
       border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 12px;
+      padding-top: 10px;
     }
 
     .apple-btn {
@@ -220,15 +215,10 @@
       font-weight: 600;
       color: var(--accent-white);
       cursor: pointer;
-      transition: background 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-    }
-
-    .apple-btn:active {
-      background: rgba(255,255,255,0.2);
     }
 
     .apple-btn.primary {
@@ -236,13 +226,8 @@
       color: #000000;
     }
 
-    .apple-btn.primary:active {
-      background: #e0e0e0;
-    }
-
-    /* Form Inputs */
     .input-group {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .input-group label {
@@ -251,8 +236,7 @@
       font-size: 10px;
       color: var(--text-muted);
       text-transform: uppercase;
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
+      margin-bottom: 5px;
     }
 
     .input-group input {
@@ -260,19 +244,13 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      padding: 12px 14px;
+      padding: 11px 12px;
       font-family: 'SF Mono', monospace;
       font-size: 13px;
       color: var(--accent-white);
       outline: none;
-      transition: border-color 0.2s;
     }
 
-    .input-group input:focus {
-      border-color: rgba(255,255,255,0.4);
-    }
-
-    /* Toast HUD */
     #toast {
       position: fixed;
       top: 40px;
@@ -282,16 +260,14 @@
       backdrop-filter: blur(20px);
       border: 1px solid rgba(255,255,255,0.15);
       color: #fff;
-      padding: 10px 20px;
+      padding: 8px 18px;
       border-radius: 30px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.3px;
       opacity: 0;
       pointer-events: none;
       transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
       z-index: 1000;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     #toast.show {
@@ -302,7 +278,6 @@
 </head>
 <body>
 
-  <!-- Toast HUD Notification Overlay -->
   <div id="toast">SYSTEM SYNCED</div>
 
   <!-- 3D Quantum Point-Cloud Sphere Header -->
@@ -314,88 +289,101 @@
   <!-- App Viewport -->
   <div class="app-viewport">
     
-    <!-- Apple Segmented Switcher -->
+    <!-- Apple 4-Segment Switcher -->
     <div class="segmented-control">
       <div class="seg-btn active" onclick="switchPane('slate')">Slate</div>
       <div class="seg-btn" onclick="switchPane('vault')">Vault</div>
+      <div class="seg-btn" onclick="switchPane('universe')">Universe</div>
       <div class="seg-btn" onclick="switchPane('system')">System</div>
     </div>
 
     <!-- PANE 1: TACTICAL SLATE -->
     <div id="pane-slate" class="screen-pane active">
-      <div id="slate-container">
-        <!-- Default Week 43 Pre-load -->
-        <div class="apple-card">
-          <div class="card-top">
-            <div>
-              <h2 class="ticker-title">#1 MU (Micron)</h2>
-              <div class="ticker-subtitle">AI_INFRA // CONVICTION TOP TIER</div>
-            </div>
-            <div class="score-badge">100.0</div>
+      <div class="apple-card">
+        <div class="card-top">
+          <div>
+            <h2 class="ticker-title">#1 MU (Micron)</h2>
+            <div class="ticker-subtitle">AI_INFRA // CONVICTION TOP TIER</div>
           </div>
-          <div class="telemetry-row">
-            <div class="telemetry-group">
-              <span class="tel-label">Limit Target</span>
-              <span class="tel-value highlight">$881.13</span>
-            </div>
-            <div class="telemetry-group">
-              <span class="tel-label">Current Spot</span>
-              <span class="tel-value">$905.44</span>
-            </div>
+          <div class="score-badge">100.0</div>
+        </div>
+        <div class="telemetry-row">
+          <div class="telemetry-group">
+            <span class="tel-label">Limit Target</span>
+            <span class="tel-value highlight">$881.13</span>
           </div>
-          <div class="action-row">
-            <button class="apple-btn primary" onclick="copyLimit('$881.13')"><i class="fa-regular fa-copy"></i> Copy Limit</button>
+          <div class="telemetry-group">
+            <span class="tel-label">Current Spot</span>
+            <span class="tel-value">$905.44</span>
           </div>
         </div>
-
-        <div class="apple-card">
-          <div class="card-top">
-            <div>
-              <h2 class="ticker-title">#2 VRT (Vertiv)</h2>
-              <div class="ticker-subtitle">AI_INFRA // FALLBACK GATE</div>
-            </div>
-            <div class="score-badge">95.31</div>
-          </div>
-          <div class="telemetry-row">
-            <div class="telemetry-group">
-              <span class="tel-label">Limit Target</span>
-              <span class="tel-value highlight">$202.02</span>
-            </div>
-            <div class="telemetry-group">
-              <span class="tel-label">Current Spot</span>
-              <span class="tel-value">$207.24</span>
-            </div>
-          </div>
-          <div class="action-row">
-            <button class="apple-btn primary" onclick="copyLimit('$202.02')"><i class="fa-regular fa-copy"></i> Copy Limit</button>
-          </div>
+        <div class="action-row">
+          <button class="apple-btn primary" onclick="copyLimit('$881.13')"><i class="fa-regular fa-copy"></i> Copy Limit</button>
         </div>
-      </div>
-    </div>
-
-    <!-- PANE 2: VAULT & RISK -->
-    <div id="pane-vault" class="screen-pane">
-      <div class="apple-card" style="text-align: center; padding: 24px;">
-        <span class="tel-label">Dry Powder Vault Reserve</span>
-        <div id="vault-disp" style="font-size: 32px; font-weight: 700; font-family: 'SF Mono', monospace; margin: 8px 0; color: #fff;">$60.00</div>
-        <span class="ticker-subtitle">WEEKLY ALLOCATION: $340 EQUITY + $60 RESERVE</span>
       </div>
 
       <div class="apple-card">
         <div class="card-top">
           <div>
-            <h2 class="ticker-title" style="font-size: 15px;">S&P 500 Crash Override</h2>
-            <div class="ticker-subtitle">TRIGGER THRESHOLD: -15.0% DRAWDOWN</div>
+            <h2 class="ticker-title">#2 VRT (Vertiv)</h2>
+            <div class="ticker-subtitle">AI_INFRA // FALLBACK GATE</div>
+          </div>
+          <div class="score-badge">95.31</div>
+        </div>
+        <div class="telemetry-row">
+          <div class="telemetry-group">
+            <span class="tel-label">Limit Target</span>
+            <span class="tel-value highlight">$202.02</span>
+          </div>
+          <div class="telemetry-group">
+            <span class="tel-label">Current Spot</span>
+            <span class="tel-value">$207.24</span>
+          </div>
+        </div>
+        <div class="action-row">
+          <button class="apple-btn primary" onclick="copyLimit('$202.02')"><i class="fa-regular fa-copy"></i> Copy Limit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE 2: VAULT -->
+    <div id="pane-vault" class="screen-pane">
+      <div class="apple-card" style="text-align: center; padding: 22px;">
+        <span class="tel-label">Dry Powder Vault Reserve</span>
+        <div style="font-size: 30px; font-weight: 700; font-family: 'SF Mono', monospace; margin: 6px 0; color: #fff;">$60.00</div>
+        <span class="ticker-subtitle">WEEKLY ALLOCATION: $340 EQUITY + $60 RESERVE</span>
+      </div>
+      <div class="apple-card">
+        <div class="card-top">
+          <div>
+            <h2 class="ticker-title" style="font-size: 14px;">S&P Crash Override</h2>
+            <div class="ticker-subtitle">TRIGGER THRESHOLD: -15.0%</div>
           </div>
           <div class="score-badge" style="color: #30d158;">ARMED</div>
         </div>
-        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin: 0;">
-          When breached, the system automatically releases 50% of the dry powder vault reserve into priority high-conviction moats.
+        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 0;">
+          Releases 50% of vault reserve into priority high-conviction moats upon breach.
         </p>
       </div>
     </div>
 
-    <!-- PANE 3: SYSTEM CONFIG -->
+    <!-- PANE 3: UNIVERSE -->
+    <div id="pane-universe" class="screen-pane">
+      <div class="apple-card">
+        <div class="card-top">
+          <div>
+            <h2 class="ticker-title" style="font-size: 14px;">Macro Intelligence Feed</h2>
+            <div class="ticker-subtitle">SYSTEM STATUS: NOMINAL // 2026-W43</div>
+          </div>
+          <div class="score-badge" style="color: #30d158;">LIVE</div>
+        </div>
+        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 0;">
+          All telemetry channels synchronized. Autonomous weekly scan completed successfully.
+        </p>
+      </div>
+    </div>
+
+    <!-- PANE 4: SYSTEM CONFIG -->
     <div id="pane-system" class="screen-pane">
       <div class="apple-card">
         <div class="input-group">
@@ -408,9 +396,9 @@
         </div>
         <div class="input-group">
           <label>GitHub Classic / PAT Token</label>
-          <input type="password" id="cfg-token" placeholder="ghp_... or github_pat_...">
+          <input type="password" id="cfg-token" placeholder="ghp_...">
         </div>
-        <div style="display: flex; gap: 8px; margin-top: 16px;">
+        <div style="display: flex; gap: 8px; margin-top: 14px;">
           <button class="apple-btn" onclick="saveConfig()">Save Config</button>
           <button class="apple-btn primary" onclick="triggerRemoteWorkflow()">Run Scan</button>
         </div>
@@ -419,9 +407,7 @@
 
   </div>
 
-  <!-- JavaScript Engine for 3D Sphere & API Interactions -->
   <script>
-    // Local App Config Store
     let appConfig = {
       topic: localStorage.getItem('app_topic') || 'tradingengine',
       repo: localStorage.getItem('app_repo') || 'osaul23/fridayvalueengine',
@@ -433,21 +419,7 @@
       document.getElementById('cfg-repo').value = appConfig.repo;
       document.getElementById('cfg-token').value = appConfig.token;
       initQuantumSphere();
-      pollNtfyData();
     });
 
     function saveConfig() {
-      appConfig.topic = document.getElementById('cfg-topic').value.trim();
-      appConfig.repo = document.getElementById('cfg-repo').value.trim();
-      appConfig.token = document.getElementById('cfg-token').value.trim();
-      
-      localStorage.setItem('app_topic', appConfig.topic);
-      localStorage.setItem('app_repo', appConfig.repo);
-      localStorage.setItem('app_token', appConfig.token);
-      
-      showToast("SETTINGS SAVED");
-    }
-
-    function switchPane(paneId) {
-      document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.screen-pane').forEach(p => p.classList.remove('active
+      appConfig.topic = document.getElementById('cfg-topic').value.
