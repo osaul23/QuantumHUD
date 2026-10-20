@@ -1156,17 +1156,33 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
       document.getElementById('hero-sub-status').textContent = `Polling ntfy.sh/${topic}...`;
 
       try {
-        const res = await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}/json?poll=1&limit=1`, {
-          cache: 'no-store'
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-        const rawText = (await res.text()).trim();
-        if (!rawText) {
-          showCapsuleToast('No Recent ntfy Broadcasts (14d)');
-          document.getElementById('hero-sub-status').textContent = 'Verified Week 43 Slate Active';
-          return;
-        }
+    const res = await fetch('https://raw.githubusercontent.com/osaul23/fridayvalueengine/main/value_engine_state.json', {
+      cache: 'no-store'
+    });
+    if (!res.ok) throw new Error('Failed to fetch state');
+    
+    const state = await res.json();
+    if (state && state.candidates && state.candidates.length > 0) {
+      activeSlate = {
+        cycle: `Week ${state.last_run_week}`,
+        candidates: state.candidates,
+        dryPowder: state.dry_powder_usd,
+        holdings: state.holdings_usd
+      };
+      localStorage.setItem('ve_minimal_cached_slate', JSON.stringify(activeSlate));
+      renderSlateView();
+      renderUniverseList();
+      switchView('slate');
+      triggerSphereRipple(2.2);
+      showCapsuleToast(`Synced Week ${state.last_run_week}`);
+      document.getElementById('hero-sub-status').textContent = `Synced live state · Week ${state.last_run_week}`;
+    } else {
+      showCapsuleToast('No candidates found in state');
+    }
+} catch (err) {
+    console.error("Slate sync failed:", err);
+    showCapsuleToast('Sync Failed');
+}
 
         const parsed = parseNtfyBroadcast(rawText);
         if (parsed && parsed.candidates.length > 0) {
