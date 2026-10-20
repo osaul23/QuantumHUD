@@ -289,14 +289,14 @@
       <div class="glass-surface px-4 py-3 flex items-center justify-between gap-3">
         <div class="space-y-0.5">
           <div class="flex items-center gap-2">
-            <span class="text-[11px] font-medium text-white tracking-tight" id="routing-gate-title">100% Single-Target Allocation</span>
+            <span class="text-[11px] font-medium text-white tracking-tight" id="routing-gate-title">60/40 Cross-Theme Split Active</span>
           </div>
           <p id="routing-gate-desc" class="text-[11px] text-[#8E8E93] leading-relaxed">
-            Top candidates share <span class="text-white font-mono">AI_Infra</span>. 60/40 cross-theme split bypassed; #2 and #3 stand by as limit slippage guards.
+            60% ($204) routed to #1 and 40% ($136) to #2 across distinct structural moats. #3 stands by as limit slippage guard.
           </p>
         </div>
-        <span class="shrink-0 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-white tabular">
-          $340.00
+        <span id="routing-gate-badge" class="shrink-0 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-white tabular">
+          $204 / $136
         </span>
       </div>
 
@@ -482,6 +482,7 @@
         <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 text-[11px] font-mono">
           <button onclick="setUniverseFilter('All')" id="u-pill-All" class="u-pill px-3 py-1 rounded-full bg-white text-black font-medium shrink-0">All</button>
           <button onclick="setUniverseFilter('AI_Infra')" id="u-pill-AI_Infra" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">AI_Infra</button>
+          <button onclick="setUniverseFilter('Grid_Power')" id="u-pill-Grid_Power" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Grid_Power</button>
           <button onclick="setUniverseFilter('Cloud_Moat')" id="u-pill-Cloud_Moat" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Cloud_Moat</button>
           <button onclick="setUniverseFilter('Cyber_Toll')" id="u-pill-Cyber_Toll" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Cyber_Toll</button>
           <button onclick="setUniverseFilter('Healthcare')" id="u-pill-Healthcare" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Healthcare</button>
@@ -514,7 +515,7 @@
         <div class="space-y-3">
           <div>
             <label class="block text-[11px] text-[#8E8E93] mb-1.5">ntfy.sh Topic</label>
-            <input id="cfg-ntfy-topic" type="text" placeholder="e.g. friday_value_engine" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/10 font-mono text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40">
+            <input id="cfg-ntfy-topic" type="text" placeholder="e.g. tradingengine" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/10 font-mono text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40">
           </div>
 
           <div>
@@ -583,23 +584,24 @@
      * 1. VERIFIED WEEK 43 SLATE & ELITE 15 MOAT UNIVERSE DATA
      *****************************************************************/
     const DEFAULT_W43_RAW_STREAM = `Week: 2026-W43 | Dry Powder Route: $60.00
+Routing: 60/40 Cross-Theme Split Active ($204 / $136)
 
 #1 MU (AI_Infra) | Score: 100.0
-  Limit: $891.33 (Spot: $904.90)
-  Order: $340.0 (~0.3815 shs)
+  Limit: $880.59 (Spot: $904.90)
+  Order: $204.00 (~0.2317 shs)
 
 #2 VRT (AI_Infra) | Score: 95.43
-  Limit: $202.99 (Spot: $206.08)
-  Order: $340.0 (~1.675 shs)
+  Limit: $200.83 (Spot: $206.08)
+  Order: $136.00 (~0.6772 shs)
 
 #3 AVGO (AI_Infra) | Score: 89.68
-  Limit: $329.57 (Spot: $334.59)
-  Order: $340.0 (~1.0316 shs)`;
+  Limit: $328.72 (Spot: $334.59)
+  Order: $136.00 (~0.4137 shs)`;
 
     const DEFAULT_W43_SLATE = {
       cycle: '2026-W43',
-      gateTitle: '100% Single-Target Allocation',
-      gateDesc: 'Top candidates share <span class="text-white font-mono">AI_Infra</span>. 60/40 cross-theme split bypassed; #2 and #3 stand by as limit slippage guards.',
+      gateTitle: '60/40 Diversification Split Active',
+      gateDesc: '60% ($204) routed to <span class="text-white font-mono">#1 Primary</span> and 40% ($136) to <span class="text-white font-mono">#2 Co-Target</span>. #3 stands by as limit slippage guard.',
       rawStream: DEFAULT_W43_RAW_STREAM,
       candidates: [
         {
@@ -608,11 +610,12 @@
           name: 'Micron Technology',
           theme: 'AI_Infra',
           score: '100.0',
-          limit: '891.33',
+          limit: '880.59',
           spot: '904.90',
-          allocation: '$340.00',
-          shares: '~0.3815 shs',
-          roleLabel: 'Primary Target · 100% Conviction'
+          allocation_usd: 204.00,
+          allocation: '$204.00',
+          shares: '~0.2317 shs',
+          roleLabel: 'Primary Target · 60% Split ($204)'
         },
         {
           rank: 2,
@@ -620,11 +623,12 @@
           name: 'Vertiv Holdings',
           theme: 'AI_Infra',
           score: '95.43',
-          limit: '202.99',
+          limit: '200.83',
           spot: '206.08',
-          allocation: '$340.00',
-          shares: '~1.675 shs',
-          roleLabel: 'Fallback #1 · Slippage Guard'
+          allocation_usd: 136.00,
+          allocation: '$136.00',
+          shares: '~0.6772 shs',
+          roleLabel: 'Co-Target #2 · 40% Split ($136)'
         },
         {
           rank: 3,
@@ -632,11 +636,12 @@
           name: 'Broadcom Inc.',
           theme: 'AI_Infra',
           score: '89.68',
-          limit: '329.57',
+          limit: '328.72',
           spot: '334.59',
-          allocation: '$340.00',
-          shares: '~1.0316 shs',
-          roleLabel: 'Fallback #2 · Secondary Guard'
+          allocation_usd: 136.00,
+          allocation: '$136.00',
+          shares: '~0.4137 shs',
+          roleLabel: 'Standby Fallback · Slippage Guard'
         }
       ]
     };
@@ -649,7 +654,7 @@
       { ticker: 'AMD',  name: 'Advanced Micro Devices', category: 'AI_Infra', role: 'EPYC server CPUs & Instinct AI accelerators' },
       { ticker: 'MU',   name: 'Micron Technology', category: 'AI_Infra', role: 'HBM3E/HBM4 high-bandwidth memory bottleneck' },
       { ticker: 'VRT',  name: 'Vertiv Holdings', category: 'AI_Infra', role: 'High-density liquid cooling & thermal management' },
-      { ticker: 'ETN',  name: 'Eaton Corporation', category: 'AI_Infra', role: 'Grid-scale electrical transformers & switchgear' },
+      { ticker: 'ETN',  name: 'Eaton Corporation', category: 'Grid_Power', role: 'Grid-scale electrical transformers & switchgear' },
       { ticker: 'GOOGL',name: 'Alphabet Inc.', category: 'Cloud_Moat', role: 'Global search intent, YouTube & custom TPU stack' },
       { ticker: 'META', name: 'Meta Platforms', category: 'Cloud_Moat', role: '3.2B+ daily social graph & AI ad monetization' },
       { ticker: 'PANW', name: 'Palo Alto Networks', category: 'Cyber_Toll', role: 'Enterprise zero-trust network security tollbooth' },
@@ -1013,7 +1018,7 @@
     /*****************************************************************
      * 4. VIEW 1: SLATE RENDERER & ONE-TAP CLIPBOARD ACTIONS
      *****************************************************************/
-    function normalizeCandidate(item, idx) {
+    function normalizeCandidate(item, idx, totalCandidates = 3) {
       const rank = item.rank || (idx + 1);
       const ticker = (item.ticker || 'MU').toUpperCase();
       const uInfo = UNIVERSE_BY_TICKER[ticker] || { name: `${ticker} Corp.`, category: 'AI_Infra' };
@@ -1025,6 +1030,35 @@
       const numLimit = parseFloat(String(rawLimit).replace(/[^0-9.]/g, ''));
       const numSpot = parseFloat(String(rawSpot).replace(/[^0-9.]/g, ''));
 
+      // Determine allocation USD (supports explicit allocation_usd, string allocation, or 60/40 split default)
+      let allocNum = 340.00;
+      if (typeof item.allocation_usd === 'number' && !isNaN(item.allocation_usd)) {
+        allocNum = item.allocation_usd;
+      } else if (item.allocation) {
+        const parsedAlloc = parseFloat(String(item.allocation).replace(/[^0-9.]/g, ''));
+        if (!isNaN(parsedAlloc) && parsedAlloc > 0) allocNum = parsedAlloc;
+      } else if (totalCandidates >= 2) {
+        allocNum = rank === 1 ? 204.00 : 136.00;
+      }
+
+      const isSplitOrder = allocNum < 340.00;
+      const formattedAlloc = `$${allocNum.toFixed(2)}`;
+      const computedShares = (!isNaN(numLimit) && numLimit > 0)
+        ? `~${(allocNum / numLimit).toFixed(4)} shs`
+        : 'Active';
+
+      const defaultRoleLabel = isSplitOrder
+        ? (rank === 1
+            ? 'Primary Target · 60% Split ($204)'
+            : rank === 2
+              ? 'Co-Target #2 · 40% Split ($136)'
+              : 'Standby Fallback · Slippage Guard')
+        : (rank === 1
+            ? 'Primary Target · 100% Conviction'
+            : rank === 2
+              ? 'Fallback #1 · Slippage Guard'
+              : 'Fallback #2 · Secondary Guard');
+
       return {
         rank,
         ticker,
@@ -1033,15 +1067,10 @@
         score: !isNaN(numScore) ? numScore.toFixed(numScore === 100 ? 1 : 2) : String(rawScore),
         limit: !isNaN(numLimit) ? numLimit.toFixed(2) : String(rawLimit),
         spot: !isNaN(numSpot) ? numSpot.toFixed(2) : String(rawSpot),
-        allocation: item.allocation || '$340.00',
-        shares: item.shares || (!isNaN(numLimit) && numLimit > 0 ? `~${(340 / numLimit).toFixed(4)} shs` : 'Active'),
-        roleLabel: item.roleLabel || (
-          rank === 1
-            ? 'Primary Target · 100% Conviction'
-            : rank === 2
-              ? 'Fallback #1 · Slippage Guard'
-              : 'Fallback #2 · Secondary Guard'
-        )
+        allocation_usd: allocNum,
+        allocation: item.allocation || formattedAlloc,
+        shares: item.shares || computedShares,
+        roleLabel: item.roleLabel || defaultRoleLabel
       };
     }
 
@@ -1054,7 +1083,9 @@
         ? slate.candidates
         : DEFAULT_W43_SLATE.candidates;
 
-      const normalized = rawCandidates.slice(0, 3).map((c, idx) => normalizeCandidate(c, idx));
+      const normalized = rawCandidates.slice(0, 3).map((c, idx) =>
+        normalizeCandidate(c, idx, rawCandidates.length)
+      );
 
       // Update Top Header & Hero Centerpiece Readout
       const cycleText = String(slate.cycle || '2026-W43').replace(/^Week\s+/i, '');
@@ -1066,20 +1097,37 @@
         document.getElementById('hero-primary-limit').textContent = `$${normalized[0].limit}`;
       }
 
-      if (slate.gateTitle) {
-        document.getElementById('routing-gate-title').textContent = slate.gateTitle;
-      }
-      if (slate.gateDesc) {
-        document.getElementById('routing-gate-desc').innerHTML = slate.gateDesc;
+      const isSplitActive = normalized.length >= 2 && normalized[0].allocation_usd < 340;
+      const c1 = normalized[0];
+      const c2 = normalized[1];
+
+      const computedTitle = slate.gateTitle || (
+        isSplitActive
+          ? (c1.theme !== c2.theme ? '60/40 Cross-Theme Split Active' : '60/40 Single-Stock Cap Active')
+          : '100% Single-Target Allocation'
+      );
+
+      const computedDesc = slate.gateDesc || (
+        isSplitActive
+          ? `60% ($204) routed to <span class="text-white font-mono">${c1.ticker} (${c1.theme})</span> and 40% ($136) to <span class="text-white font-mono">${c2.ticker} (${c2.theme})</span>. #3 stands by as limit slippage guard.`
+          : 'Single dominant moat cleared conviction threshold. Full $340.00 active pool deployed to #1.'
+      );
+
+      document.getElementById('routing-gate-title').textContent = computedTitle;
+      document.getElementById('routing-gate-desc').innerHTML = computedDesc;
+
+      const badgeEl = document.getElementById('routing-gate-badge');
+      if (badgeEl) {
+        badgeEl.textContent = isSplitActive ? '$204 / $136' : '$340.00';
       }
 
       document.getElementById('raw-payload-pre').textContent = slate.rawStream || DEFAULT_W43_RAW_STREAM;
 
       // Render Obsidian Glass Candidate Execution Cards
       container.innerHTML = normalized.map((item) => {
-        const isPrimary = item.rank === 1;
-        const surfaceClass = isPrimary ? 'glass-surface-active' : 'glass-surface';
-        const badgeClass = isPrimary
+        const isActiveOrder = item.rank === 1 || (isSplitActive && item.rank === 2);
+        const surfaceClass = isActiveOrder ? 'glass-surface-active' : 'glass-surface';
+        const badgeClass = isActiveOrder
           ? 'bg-white text-black font-semibold'
           : 'bg-white/10 text-white font-medium';
 
@@ -1118,7 +1166,7 @@
             </div>
 
             <div class="flex items-center gap-2 pt-1">
-              <button onclick="copyLimitToClipboard('${item.limit}', '${item.ticker}')" class="pressable flex-1 py-2 px-3 rounded-full ${isPrimary ? 'bg-white text-black font-semibold' : 'bg-white/10 text-white font-medium'} text-xs font-mono tracking-tight">
+              <button onclick="copyLimitToClipboard('${item.limit}', '${item.ticker}')" class="pressable flex-1 py-2 px-3 rounded-full ${isActiveOrder ? 'bg-white text-black font-semibold' : 'bg-white/10 text-white font-medium'} text-xs font-mono tracking-tight">
                 Copy Limit $${item.limit}
               </button>
               <button onclick="copyFullTicketLine('${item.ticker}', '${item.limit}', '${item.allocation}', '${item.shares}')" class="pressable py-2 px-3.5 rounded-full bg-white/5 border border-white/10 text-xs text-[#8E8E93] hover:text-white font-mono">
@@ -1378,7 +1426,7 @@
       let syncedWeek = activeSlate.cycle || '2026-W43';
 
       try {
-        // STEP 1: Fetch value_engine_state.json directly via GitHub API (bypasses CDN cache)
+        // STEP 1: Authoritative Sync from GitHub value_engine_state.json
         if (repoPath && repoPath.includes('/')) {
           try {
             const state = await fetchLiveGitHubStateJson(repoPath, pat);
@@ -1400,7 +1448,26 @@
               }
 
               if (Array.isArray(state.candidates) && state.candidates.length > 0) {
-                activeSlate.candidates = state.candidates.slice(0, 3).map((c, i) => normalizeCandidate(c, i));
+                const normCands = state.candidates
+                  .slice(0, 3)
+                  .map((c, i) => normalizeCandidate(c, i, state.candidates.length));
+                activeSlate.candidates = normCands;
+
+                const isSplit = normCands.length >= 2 && normCands[0].allocation_usd < 340;
+                const c1 = normCands[0];
+                const c2 = normCands[1];
+
+                activeSlate.gateTitle = state.gate_title || (
+                  isSplit
+                    ? (c1.theme !== c2.theme ? '60/40 Cross-Theme Split Active' : '60/40 Single-Stock Cap Active')
+                    : '100% Single-Target Allocation'
+                );
+
+                activeSlate.gateDesc = state.gate_desc || (
+                  isSplit
+                    ? `60% ($204) routed to <span class="text-white font-mono">${c1.ticker} (${c1.theme})</span> and 40% ($136) to <span class="text-white font-mono">${c2.ticker} (${c2.theme})</span>. #3 stands by as limit slippage guard.`
+                    : 'Single dominant moat cleared conviction threshold. Full $340.00 active pool deployed to #1.'
+                );
               }
               syncedFromStateFile = true;
             }
@@ -1409,7 +1476,7 @@
           }
         }
 
-        // STEP 2: Poll ntfy.sh broadcast stream if topic is configured and state was not freshly reset
+        // STEP 2: Poll ntfy.sh for Raw Telemetry Drawer (without clobbering JSON state labels)
         if (topic && !stateWasResetToNull) {
           const ntfyRes = await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}/json?poll=1`, {
             cache: 'no-store'
@@ -1436,10 +1503,12 @@
               }
 
               if (latestMessageText) {
-                const parsed = parseNtfyBroadcast(latestMessageText);
-                if (parsed && parsed.candidates.length > 0) {
-                  activeSlate = parsed;
-                  syncedFromStateFile = true;
+                activeSlate.rawStream = latestMessageText;
+                if (!syncedFromStateFile) {
+                  const parsed = parseNtfyBroadcast(latestMessageText);
+                  if (parsed && parsed.candidates.length > 0) {
+                    activeSlate = parsed;
+                  }
                 }
               }
             }
@@ -1479,6 +1548,7 @@
     function parseNtfyBroadcast(rawText) {
       const weekMatch = rawText.match(/Week:\s*([0-9A-Za-z-_]+)/i) || rawText.match(/202\d-W\d+/i);
       const cycle = weekMatch ? (weekMatch[1] || weekMatch[0]) : '2026-W43';
+      const isSplit = (/60\/40/i.test(rawText) && !/bypassed/i.test(rawText)) || /\$204/i.test(rawText);
 
       const lines = rawText.split(/\r?\n/);
       const candidates = [];
@@ -1491,6 +1561,7 @@
           const rank = parseInt(headerMatch[1], 10);
           const ticker = headerMatch[2].toUpperCase();
           const uInfo = UNIVERSE_BY_TICKER[ticker] || { name: `${ticker} Corp.`, category: 'AI_Infra' };
+          const defaultOrderUsd = isSplit ? (rank === 1 ? 204.00 : 136.00) : 340.00;
 
           current = {
             rank,
@@ -1500,19 +1571,19 @@
             score: headerMatch[4],
             limit: '0.00',
             spot: '0.00',
-            allocation: '$340.00',
+            allocation_usd: defaultOrderUsd,
+            allocation: `$${defaultOrderUsd.toFixed(2)}`,
             shares: 'Active',
-            roleLabel: rank === 1
-              ? 'Primary Target · 100% Conviction'
-              : rank === 2
-                ? 'Fallback #1 · Slippage Guard'
-                : 'Fallback #2 · Secondary Guard'
+            roleLabel: isSplit
+              ? (rank === 1
+                  ? 'Primary Target · 60% Split ($204)'
+                  : rank === 2
+                    ? 'Co-Target #2 · 40% Split ($136)'
+                    : 'Standby Fallback · Slippage Guard')
+              : (rank === 1
+                  ? 'Primary Target · 100% Conviction'
+                  : `Fallback #${rank - 1} · Slippage Guard`)
           };
-
-          const inlineLim = line.match(/Limit:\s*\$?([0-9.]+)/i);
-          const inlineSpot = line.match(/(?:Spot|Price):\s*\$?([0-9.]+)/i);
-          if (inlineLim) current.limit = parseFloat(inlineLim[1]).toFixed(2);
-          if (inlineSpot) current.spot = parseFloat(inlineSpot[1]).toFixed(2);
           continue;
         }
 
@@ -1525,18 +1596,32 @@
           const ordMatch = line.match(/Order:\s*(\$[0-9.]+)\s*\(([^)]+)\)/i);
           if (ordMatch) {
             const ordNum = parseFloat(ordMatch[1].replace('$', ''));
-            current.allocation = !isNaN(ordNum) ? `$${ordNum.toFixed(2)}` : ordMatch[1];
+            if (!isNaN(ordNum)) {
+              current.allocation_usd = ordNum;
+              current.allocation = `$${ordNum.toFixed(2)}`;
+            } else {
+              current.allocation = ordMatch[1];
+            }
             current.shares = ordMatch[2];
           }
         }
       }
       if (current) candidates.push(current);
 
-      const isSplit = /60\/40/i.test(rawText) && !/bypassed/i.test(rawText);
+      const c1 = candidates[0];
+      const c2 = candidates[1];
+      const gateTitle = isSplit
+        ? (c1 && c2 && c1.theme !== c2.theme ? '60/40 Cross-Theme Split Active' : '60/40 Single-Stock Cap Active')
+        : '100% Single-Target Allocation';
+
+      const gateDesc = (isSplit && c1 && c2)
+        ? `60% ($204) routed to <span class="text-white font-mono">${c1.ticker} (${c1.theme})</span> and 40% ($136) to <span class="text-white font-mono">${c2.ticker} (${c2.theme})</span>. #3 stands by as limit slippage guard.`
+        : 'Single dominant moat cleared conviction threshold. Full $340.00 active pool deployed to #1.';
+
       return {
         cycle,
-        gateTitle: isSplit ? '60/40 Cross-Theme Split Active' : '100% Single-Target Allocation',
-        gateDesc: DEFAULT_W43_SLATE.gateDesc,
+        gateTitle,
+        gateDesc,
         rawStream: rawText,
         candidates: candidates.slice(0, 3)
       };
