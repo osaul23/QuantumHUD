@@ -234,4 +234,1435 @@
           <span class="text-[#48484A]">·</span>
           <span id="hero-primary-score" class="text-white tabular">100.0</span>
           <span class="text-[#48484A]">·</span>
-          <span id="hero-primary-
+          <span id="hero-primary-limit" class="text-white font-semibold tabular">$891.33</span>
+        </div>
+        <p id="hero-sub-status" class="text-[11px] text-[#8E8E93] tracking-tight">
+          Drag sphere to inspect · Tap to pulse harmonic field
+        </p>
+      </div>
+
+      <!-- Two Sleek Pill Action Buttons -->
+      <div class="flex items-center justify-center gap-2.5 mt-3.5 w-full max-w-[300px]">
+        <button onclick="pollNtfyStream()" class="pressable flex-1 py-2.5 px-4 rounded-full bg-[#121214] border border-white/10 text-white text-xs font-medium tracking-tight flex items-center justify-center gap-2">
+          <svg id="sync-spinner" class="w-3.5 h-3.5 text-white/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+            <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+            <path d="M16 16h5v5"/>
+          </svg>
+          <span>Sync Slate</span>
+        </button>
+
+        <button onclick="triggerLiveGitHubScan()" class="pressable flex-1 py-2.5 px-4 rounded-full bg-white text-black text-xs font-semibold tracking-tight flex items-center justify-center gap-1.5 shadow-lg">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="6"/>
+          </svg>
+          <span>Run Scan</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- APPLE SEGMENTED CONTROL (4 MINIMALIST VIEWS)            -->
+    <!-- ======================================================= -->
+    <nav class="segmented-control grid grid-cols-4 mb-5 sticky top-2 z-30">
+      <button onclick="switchView('slate')" id="seg-slate" class="seg-btn active py-2 text-xs tracking-tight text-center">
+        Slate
+      </button>
+      <button onclick="switchView('vault')" id="seg-vault" class="seg-btn py-2 text-xs tracking-tight text-center">
+        Vault
+      </button>
+      <button onclick="switchView('universe')" id="seg-universe" class="seg-btn py-2 text-xs tracking-tight text-center">
+        Universe
+      </button>
+      <button onclick="switchView('system')" id="seg-system" class="seg-btn py-2 text-xs tracking-tight text-center">
+        System
+      </button>
+    </nav>
+
+    <!-- ======================================================= -->
+    <!-- VIEW 1: SLATE (EXECUTION TARGETS)                       -->
+    <!-- ======================================================= -->
+    <main id="view-slate" class="view-panel space-y-3.5">
+
+      <!-- Routing Gate Pill Bar -->
+      <div class="glass-surface px-4 py-3 flex items-center justify-between gap-3">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] font-medium text-white tracking-tight" id="routing-gate-title">100% Single-Target Allocation</span>
+          </div>
+          <p id="routing-gate-desc" class="text-[11px] text-[#8E8E93] leading-relaxed">
+            Top candidates share <span class="text-white font-mono">AI_Infra</span>. 60/40 cross-theme split bypassed; #2 and #3 stand by as limit slippage guards.
+          </p>
+        </div>
+        <span class="shrink-0 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-white tabular">
+          $340.00
+        </span>
+      </div>
+
+      <!-- Dynamic Multi-Candidate Execution Cards Container -->
+      <div id="slate-cards-list" class="space-y-3">
+        <!-- Populated via renderSlateView() -->
+      </div>
+
+      <!-- Minimalist Collapsible Raw Telemetry Log -->
+      <div class="glass-surface overflow-hidden">
+        <button onclick="toggleRawPayloadDrawer()" class="w-full px-4 py-3.5 flex items-center justify-between text-left">
+          <div class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#8E8E93]"></span>
+            <span class="text-xs font-medium text-[#8E8E93]">Raw Telemetry Broadcast</span>
+          </div>
+          <span id="raw-drawer-label" class="font-mono text-[11px] text-[#8E8E93]">Inspect</span>
+        </button>
+
+        <div id="raw-payload-drawer" class="hidden border-t border-white/5 px-4 py-3.5 space-y-3 bg-black/40">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-[#8E8E93]">ntfy.sh ASCII Stream</span>
+            <button onclick="copyRawBroadcast()" class="pressable px-3 py-1 rounded-full bg-white/10 text-white font-mono text-[10px]">
+              Copy Stream
+            </button>
+          </div>
+          <pre id="raw-payload-pre" class="selectable font-mono text-[11px] text-[#8E8E93] whitespace-pre-wrap leading-relaxed overflow-x-auto"></pre>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ======================================================= -->
+    <!-- VIEW 2: VAULT (CAPITAL & CRASH GATE)                    -->
+    <!-- ======================================================= -->
+    <main id="view-vault" class="view-panel hidden space-y-3.5">
+
+      <!-- Weekly Commitment Architecture Card -->
+      <div class="glass-surface p-5 space-y-4">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">Weekly Commitment</div>
+            <div class="text-3xl font-semibold tracking-tight text-white mt-1 font-mono tabular">$400.00</div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[11px] text-[#8E8E93] tabular">
+            85 / 15 Split
+          </span>
+        </div>
+
+        <!-- Minimalist Monochrome Split Bar -->
+        <div class="space-y-2">
+          <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden flex gap-0.5">
+            <div class="h-full bg-white rounded-l-full" style="width: 85%"></div>
+            <div class="h-full bg-[#8E8E93] rounded-r-full" style="width: 15%"></div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs font-mono tabular pt-1">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+              <span class="text-[#8E8E93]">Active Equity (85%)</span>
+              <span class="text-white font-medium">$340.00</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#8E8E93]"></span>
+              <span class="text-[#8E8E93]">Vault (15%)</span>
+              <span class="text-white font-medium">+$60.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dry Powder Vault Reserve Card -->
+      <div class="glass-surface p-5 space-y-4">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">Dry Powder Vault</div>
+            <div id="vault-balance-display" class="text-3xl font-semibold tracking-tight text-white mt-1 font-mono tabular">$540.00</div>
+          </div>
+          <div class="text-right font-mono tabular">
+            <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">50% Crash Tranche</div>
+            <div id="vault-tranche-display" class="text-sm font-medium text-white mt-0.5">+$270.00</div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] text-[#8E8E93] border-t border-white/5 pt-3">
+          <span>Accumulated at $60.00 / week</span>
+          <span id="vault-weeks-display" class="font-mono text-white tabular">9 Weeks Reserved</span>
+        </div>
+
+        <!-- Stepper Controls -->
+        <div class="grid grid-cols-3 gap-2 pt-1">
+          <button onclick="adjustVaultBalance(-60)" class="pressable py-2.5 rounded-full bg-white/5 border border-white/10 font-mono text-xs text-[#8E8E93] hover:text-white tabular">
+            -$60.00
+          </button>
+          <button onclick="adjustVaultBalance(60)" class="pressable py-2.5 rounded-full bg-white text-black font-mono text-xs font-semibold tabular">
+            +$60.00
+          </button>
+          <button onclick="toggleVaultCustomEdit()" class="pressable py-2.5 rounded-full bg-white/5 border border-white/10 text-xs text-white font-medium">
+            Set Balance
+          </button>
+        </div>
+
+        <!-- Optional Custom Balance Input -->
+        <div id="vault-custom-row" class="hidden pt-2 border-t border-white/5 flex items-center gap-2">
+          <input id="vault-custom-input" type="number" step="10" min="0" placeholder="540.00" class="w-full px-3.5 py-2 rounded-full bg-black border border-white/15 font-mono text-xs text-white focus:outline-none focus:border-white">
+          <button onclick="saveCustomVaultBalance()" class="pressable px-4 py-2 rounded-full bg-white text-black text-xs font-semibold shrink-0">
+            Save
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive S&P 500 Drawdown Simulator -->
+      <div id="crash-gate-card" class="glass-surface p-5 space-y-4">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">S&amp;P 500 Crash Gate Simulator</div>
+            <div class="text-base font-medium text-white mt-0.5">-15.0% Drawdown Override</div>
+          </div>
+          <span id="crash-gate-pill" class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-[#8E8E93] uppercase tracking-wider">
+            Standby
+          </span>
+        </div>
+
+        <p class="text-xs text-[#8E8E93] leading-relaxed">
+          Slide past <span class="text-white font-mono">-15.0%</span> to simulate an S&amp;P 500 correction. When triggered, the engine releases <span class="text-white font-mono">50%</span> of the Dry Powder Vault into that week’s active order.
+        </p>
+
+        <div class="space-y-3 pt-1">
+          <div class="flex items-center justify-between font-mono text-xs tabular">
+            <span class="text-[#8E8E93]">Simulated S&amp;P 500 Drawdown</span>
+            <span id="drawdown-readout" class="text-white font-semibold">-4.2%</span>
+          </div>
+
+          <input
+            id="drawdown-slider"
+            type="range"
+            min="-25"
+            max="0"
+            step="0.5"
+            value="-4.2"
+            oninput="updateDrawdownSimulator(this.value)"
+            class="apple-slider"
+          >
+
+          <div class="flex items-center justify-between font-mono text-[10px] text-[#48484A] tabular">
+            <span>-25.0%</span>
+            <span class="text-[#8E8E93]">Gate: -15.0%</span>
+            <span>0.0% ATH</span>
+          </div>
+        </div>
+
+        <!-- Resulting Weekly Deployment Output -->
+        <div class="pt-3 border-t border-white/10 flex items-baseline justify-between font-mono tabular">
+          <div>
+            <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">Resulting Weekly Order</div>
+            <div id="drawdown-breakdown" class="text-xs text-[#8E8E93] mt-0.5">$340.00 Base + $0.00 Vault</div>
+          </div>
+          <div id="drawdown-total-deploy" class="text-2xl font-semibold text-white">$340.00</div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ======================================================= -->
+    <!-- VIEW 3: UNIVERSE (THE ELITE 15 STRUCTURAL MOATS)        -->
+    <!-- ======================================================= -->
+    <main id="view-universe" class="view-panel hidden space-y-3.5">
+
+      <!-- Filter & Search Card -->
+      <div class="glass-surface p-4 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-white">Elite 15 Moat Universe</span>
+          <span class="font-mono text-[11px] text-[#8E8E93]">15 Bottlenecks</span>
+        </div>
+
+        <input
+          id="universe-search"
+          type="text"
+          oninput="renderUniverseList()"
+          placeholder="Filter ticker or monopoly role..."
+          class="w-full px-3.5 py-2 rounded-full bg-black/80 border border-white/10 text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40"
+        >
+
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 text-[11px] font-mono">
+          <button onclick="setUniverseFilter('All')" id="u-pill-All" class="u-pill px-3 py-1 rounded-full bg-white text-black font-medium shrink-0">All</button>
+          <button onclick="setUniverseFilter('AI_Infra')" id="u-pill-AI_Infra" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">AI_Infra</button>
+          <button onclick="setUniverseFilter('Cloud_Moat')" id="u-pill-Cloud_Moat" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Cloud_Moat</button>
+          <button onclick="setUniverseFilter('Cyber_Toll')" id="u-pill-Cyber_Toll" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Cyber_Toll</button>
+          <button onclick="setUniverseFilter('Healthcare')" id="u-pill-Healthcare" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Healthcare</button>
+          <button onclick="setUniverseFilter('Fin_Toll')" id="u-pill-Fin_Toll" class="u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0">Fin_Toll</button>
+        </div>
+      </div>
+
+      <!-- 15 Moats List -->
+      <div id="universe-list-container" class="glass-surface divide-y divide-white/5 overflow-hidden">
+        <!-- Populated via renderUniverseList() -->
+      </div>
+
+    </main>
+
+    <!-- ======================================================= -->
+    <!-- VIEW 4: SYSTEM (UPLINK & ONE-TAP SOURCE EXPORT)         -->
+    <!-- ======================================================= -->
+    <main id="view-system" class="view-panel hidden space-y-3.5">
+
+      <!-- Apple Settings-Style Uplink Card -->
+      <div class="glass-surface p-5 space-y-4">
+        <div>
+          <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">Telemetry &amp; Automation</div>
+          <div class="text-base font-medium text-white mt-0.5">Uplink Configuration</div>
+          <p class="text-xs text-[#8E8E93] mt-1 leading-relaxed">
+            Stored locally on this iPhone (`localStorage`). Polls both `value_engine_state.json` and your `ntfy.sh` live broadcast stream.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <div>
+            <label class="block text-[11px] text-[#8E8E93] mb-1.5">ntfy.sh Topic</label>
+            <input id="cfg-ntfy-topic" type="text" placeholder="e.g. friday_value_engine" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/10 font-mono text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40">
+          </div>
+
+          <div>
+            <label class="block text-[11px] text-[#8E8E93] mb-1.5">GitHub Repository (owner/repo)</label>
+            <input id="cfg-gh-repo" type="text" placeholder="osaul23/fridayvalueengine" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/10 font-mono text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40">
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label class="text-[11px] text-[#8E8E93]">GitHub Fine-Grained PAT (Actions: Read &amp; Write)</label>
+              <button onclick="togglePatVisibility()" type="button" id="pat-toggle-label" class="text-[11px] text-white/70 hover:text-white">Show</button>
+            </div>
+            <input id="cfg-gh-pat" type="password" placeholder="github_pat_..." class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/10 font-mono text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40">
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 pt-1">
+          <button onclick="saveSystemConfig()" class="pressable flex-1 py-2.5 rounded-full bg-white text-black text-xs font-semibold">
+            Save Configuration
+          </button>
+          <button onclick="restoreVerifiedWeek43()" class="pressable px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs text-[#8E8E93] hover:text-white">
+            Reset W43
+          </button>
+        </div>
+      </div>
+
+      <!-- One-Tap Single-File Source Export Card -->
+      <div class="glass-surface p-5 space-y-3.5">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">Repository Deployment</div>
+            <div class="text-base font-medium text-white mt-0.5">Single-File `index.html` Export</div>
+          </div>
+          <span class="font-mono text-[10px] text-[#8E8E93] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
+            PWA Ready
+          </span>
+        </div>
+
+        <p class="text-xs text-[#8E8E93] leading-relaxed">
+          Copy the complete, self-contained HTML source code to paste directly into your GitHub repository’s `index.html`.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="copyCompleteHtmlSource()" class="pressable py-2.5 px-4 rounded-full bg-white text-black text-xs font-semibold">
+            Copy index.html Source
+          </button>
+          <button onclick="toggleSourceInspector()" class="pressable py-2.5 px-4 rounded-full bg-white/5 border border-white/10 text-xs text-white font-medium">
+            Inspect Code
+          </button>
+        </div>
+
+        <div id="source-inspector-box" class="hidden pt-2">
+          <textarea id="source-inspector-textarea" readonly rows="7" class="w-full p-3 rounded-xl bg-black border border-white/10 font-mono text-[10px] text-[#8E8E93] focus:outline-none"></textarea>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- APPLICATION LOGIC & 3D QUANTUM POINT-CLOUD SPHERE ENGINE  -->
+  <!-- ========================================================= -->
+  <script>
+    /*****************************************************************
+     * 1. VERIFIED WEEK 43 SLATE & ELITE 15 MOAT UNIVERSE DATA
+     *****************************************************************/
+    const DEFAULT_W43_RAW_STREAM = `Week: 2026-W43 | Dry Powder Route: $60.00
+
+#1 MU (AI_Infra) | Score: 100.0
+  Limit: $891.33 (Spot: $904.90)
+  Order: $340.0 (~0.3815 shs)
+
+#2 VRT (AI_Infra) | Score: 95.43
+  Limit: $202.99 (Spot: $206.08)
+  Order: $340.0 (~1.675 shs)
+
+#3 AVGO (AI_Infra) | Score: 89.68
+  Limit: $329.57 (Spot: $334.59)
+  Order: $340.0 (~1.0316 shs)`;
+
+    const DEFAULT_W43_SLATE = {
+      cycle: '2026-W43',
+      gateTitle: '100% Single-Target Allocation',
+      gateDesc: 'Top candidates share <span class="text-white font-mono">AI_Infra</span>. 60/40 cross-theme split bypassed; #2 and #3 stand by as limit slippage guards.',
+      rawStream: DEFAULT_W43_RAW_STREAM,
+      candidates: [
+        {
+          rank: 1,
+          ticker: 'MU',
+          name: 'Micron Technology',
+          theme: 'AI_Infra',
+          score: '100.0',
+          limit: '891.33',
+          spot: '904.90',
+          allocation: '$340.00',
+          shares: '~0.3815 shs',
+          roleLabel: 'Primary Target · 100% Conviction'
+        },
+        {
+          rank: 2,
+          ticker: 'VRT',
+          name: 'Vertiv Holdings',
+          theme: 'AI_Infra',
+          score: '95.43',
+          limit: '202.99',
+          spot: '206.08',
+          allocation: '$340.00',
+          shares: '~1.675 shs',
+          roleLabel: 'Fallback #1 · Slippage Guard'
+        },
+        {
+          rank: 3,
+          ticker: 'AVGO',
+          name: 'Broadcom Inc.',
+          theme: 'AI_Infra',
+          score: '89.68',
+          limit: '329.57',
+          spot: '334.59',
+          allocation: '$340.00',
+          shares: '~1.0316 shs',
+          roleLabel: 'Fallback #2 · Secondary Guard'
+        }
+      ]
+    };
+
+    const ELITE_15_UNIVERSE = [
+      { ticker: 'NVDA', name: 'NVIDIA Corporation', category: 'AI_Infra', role: 'Parallel AI compute & CUDA software monopoly' },
+      { ticker: 'ASML', name: 'ASML Holding', category: 'AI_Infra', role: '100% global monopoly on EUV lithography systems' },
+      { ticker: 'TSM',  name: 'Taiwan Semiconductor', category: 'AI_Infra', role: '90%+ advanced node silicon foundry tollbooth' },
+      { ticker: 'AVGO', name: 'Broadcom Inc.', category: 'AI_Infra', role: 'Custom AI ASICs & hyperscale switching fabric' },
+      { ticker: 'AMD',  name: 'Advanced Micro Devices', category: 'AI_Infra', role: 'EPYC server CPUs & Instinct AI accelerators' },
+      { ticker: 'MU',   name: 'Micron Technology', category: 'AI_Infra', role: 'HBM3E/HBM4 high-bandwidth memory bottleneck' },
+      { ticker: 'VRT',  name: 'Vertiv Holdings', category: 'AI_Infra', role: 'High-density liquid cooling & thermal management' },
+      { ticker: 'ETN',  name: 'Eaton Corporation', category: 'AI_Infra', role: 'Grid-scale electrical transformers & switchgear' },
+      { ticker: 'GOOGL',name: 'Alphabet Inc.', category: 'Cloud_Moat', role: 'Global search intent, YouTube & custom TPU stack' },
+      { ticker: 'META', name: 'Meta Platforms', category: 'Cloud_Moat', role: '3.2B+ daily social graph & AI ad monetization' },
+      { ticker: 'PANW', name: 'Palo Alto Networks', category: 'Cyber_Toll', role: 'Enterprise zero-trust network security tollbooth' },
+      { ticker: 'ISRG', name: 'Intuitive Surgical', category: 'Healthcare', role: 'da Vinci robotic surgery global monopoly' },
+      { ticker: 'TMO',  name: 'Thermo Fisher Scientific', category: 'Healthcare', role: 'Mission-critical biopharma lab infrastructure' },
+      { ticker: 'V',    name: 'Visa Inc.', category: 'Fin_Toll', role: 'Global consumer payment processing rails' },
+      { ticker: 'MCO',  name: 'Moody’s Corporation', category: 'Fin_Toll', role: 'Global sovereign & corporate credit rating authority' }
+    ];
+
+    const UNIVERSE_BY_TICKER = Object.fromEntries(ELITE_15_UNIVERSE.map(item => [item.ticker, item]));
+
+    // Active Application State
+    let activeSlate = JSON.parse(JSON.stringify(DEFAULT_W43_SLATE));
+    let vaultReserveUSD = 540.00; // Matches live value_engine_state.json reserve
+    let activeUniverseCategory = 'All';
+    let scanTimerInterval = null;
+
+    /*****************************************************************
+     * 2. 3D QUANTUM POINT-CLOUD SPHERE ENGINE (KINETIC FLYWHEEL)
+     *****************************************************************/
+    const sphereCanvas = document.getElementById('quantum-sphere-canvas');
+    sphereCanvas.style.touchAction = 'none';
+    const sCtx = sphereCanvas.getContext('2d');
+
+    const SPHERE_PHYS = {
+      BASE_IDLE_SPEED: 0.0036, // Calm ambient rotation speed
+      SENSITIVITY: 0.0022,     // Converts finger swipe speed (px/ms) into spin
+      FLICK_BOOST: 1.55,       // Momentum multiplier on fast swipe release
+      MAX_SPEED: 0.28,         // Controlled maximum RPM cap (radians/frame)
+      FRICTION: 0.989,         // Low-friction gyroscope coasting
+      TAP_SPIN_KICK: 0.036     // Rotational boost when tapping the sphere
+    };
+
+    const sphereParticles = [];
+    let rotX = 0.18;
+    let rotY = 0.0;
+    let velX = 0.0;
+    let velY = SPHERE_PHYS.BASE_IDLE_SPEED;
+    let spinDirY = 1;
+
+    let isDraggingSphere = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let lastMoveTime = 0;
+    let pointerDownTime = 0;
+    let totalDragDist = 0;
+    let instVelX = 0;
+    let instVelY = 0;
+
+    let sphereEnergy = 1.0;
+    let targetSphereEnergy = 1.0;
+    let rippleTime = -100;
+    let clockTime = 0;
+
+    function clampSphereVelocity() {
+      const speed = Math.hypot(velX, velY);
+      if (speed > SPHERE_PHYS.MAX_SPEED) {
+        const scale = SPHERE_PHYS.MAX_SPEED / speed;
+        velX *= scale;
+        velY *= scale;
+      }
+    }
+
+    function buildQuantumSphereParticles() {
+      sphereParticles.length = 0;
+
+      // 1. INNER STRUCTURED LATITUDE / LONGITUDE DOT-MATRIX GRID
+      const latRings = 44;
+      for (let i = 1; i < latRings; i++) {
+        const phi = (Math.PI * i) / latRings;
+        const sinPhi = Math.sin(phi);
+        const cosPhi = Math.cos(phi);
+
+        const lonCount = Math.max(14, Math.round(74 * sinPhi));
+        for (let j = 0; j < lonCount; j++) {
+          const theta = (2 * Math.PI * j) / lonCount;
+          sphereParticles.push({
+            bx: sinPhi * Math.cos(theta),
+            by: cosPhi,
+            bz: sinPhi * Math.sin(theta),
+            layer: 0,
+            seed: (i * 0.37) + (j * 0.19),
+            size: 1.05
+          });
+        }
+      }
+
+      // 2. ORGANIC TURBULENT RIM / CORONA SHELL
+      const coronaCount = 1550;
+      const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+      for (let i = 0; i < coronaCount; i++) {
+        const y = 1 - (i / (coronaCount - 1)) * 2;
+        const radiusAtY = Math.sqrt(Math.max(0, 1 - y * y));
+        const theta = goldenAngle * i;
+        const x = Math.cos(theta) * radiusAtY;
+        const z = Math.sin(theta) * radiusAtY;
+
+        sphereParticles.push({
+          bx: x,
+          by: y,
+          bz: z,
+          layer: 1,
+          seed: i * 0.137,
+          radialScatter: 0.985 + (Math.random() * 0.085),
+          size: 0.95 + (Math.random() * 0.65)
+        });
+      }
+
+      // 3. QUANTUM SINGULARITY ACCENT NODES
+      for (let i = 0; i < 24; i++) {
+        const u = Math.random();
+        const v = Math.random();
+        const theta = 2 * Math.PI * u;
+        const phi = Math.acos(2 * v - 1);
+        const rScale = 0.68 + Math.random() * 0.26;
+        sphereParticles.push({
+          bx: rScale * Math.sin(phi) * Math.cos(theta),
+          by: rScale * Math.cos(phi),
+          bz: rScale * Math.sin(phi) * Math.sin(theta),
+          layer: 2,
+          seed: i * 1.7,
+          size: 1.85 + (Math.random() * 0.45)
+        });
+      }
+    }
+
+    function resizeSphereCanvas() {
+      const rect = sphereCanvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 3);
+      sphereCanvas.width = Math.round(rect.width * dpr);
+      sphereCanvas.height = Math.round(rect.height * dpr);
+      sCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function triggerSphereRipple(energyBoost = 1.65) {
+      rippleTime = clockTime;
+      sphereEnergy = Math.max(sphereEnergy, energyBoost);
+    }
+
+    sphereCanvas.addEventListener('pointerdown', (e) => {
+      isDraggingSphere = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      const now = performance.now();
+      pointerDownTime = now;
+      lastMoveTime = now;
+      totalDragDist = 0;
+      instVelX = 0;
+      instVelY = 0;
+      try {
+        sphereCanvas.setPointerCapture(e.pointerId);
+      } catch (err) {}
+    });
+
+    sphereCanvas.addEventListener('pointermove', (e) => {
+      if (!isDraggingSphere) return;
+      const now = performance.now();
+      const dt = Math.max(now - lastMoveTime, 7);
+
+      const dx = e.clientX - dragStartX;
+      const dy = e.clientY - dragStartY;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      lastMoveTime = now;
+      totalDragDist += Math.hypot(dx, dy);
+
+      // Direct 1:1 tactile rotation while finger is dragging
+      rotY += dx * 0.0072;
+      rotX += dy * 0.0072;
+
+      // Normalized swipe velocity (scaled to 16.67ms 60Hz frame)
+      const frameNorm = 16.67 / dt;
+      const sampleVelY = dx * SPHERE_PHYS.SENSITIVITY * frameNorm;
+      const sampleVelX = dy * SPHERE_PHYS.SENSITIVITY * frameNorm;
+
+      instVelY = instVelY * 0.35 + sampleVelY * 0.65;
+      instVelX = instVelX * 0.35 + sampleVelX * 0.65;
+
+      // Stack momentum into existing flywheel spin proportional to input speed
+      velY = velY * 0.58 + instVelY * 0.88;
+      velX = velX * 0.58 + instVelX * 0.88;
+
+      if (Math.abs(velY) > 0.001) {
+        spinDirY = Math.sign(velY);
+      }
+
+      clampSphereVelocity();
+    });
+
+    function handleSpherePointerUp() {
+      if (!isDraggingSphere) return;
+      isDraggingSphere = false;
+
+      const now = performance.now();
+      const elapsed = now - pointerDownTime;
+
+      // Quick tap pulses the harmonic field and adds a rotational kick
+      if (elapsed < 240 && totalDragDist < 9) {
+        triggerSphereRipple(1.85);
+        velY += spinDirY * SPHERE_PHYS.TAP_SPIN_KICK;
+        clampSphereVelocity();
+        return;
+      }
+
+      // Apply flick multiplier if released while actively swiping
+      if (now - lastMoveTime < 75) {
+        velY += instVelY * SPHERE_PHYS.FLICK_BOOST;
+        velX += instVelX * SPHERE_PHYS.FLICK_BOOST;
+        if (Math.abs(velY) > 0.001) {
+          spinDirY = Math.sign(velY);
+        }
+        clampSphereVelocity();
+      }
+    }
+
+    sphereCanvas.addEventListener('pointerup', handleSpherePointerUp);
+    sphereCanvas.addEventListener('pointercancel', handleSpherePointerUp);
+
+    function renderQuantumSphereFrame() {
+      const width = sphereCanvas.clientWidth || 280;
+      const height = sphereCanvas.clientHeight || 280;
+      const cx = width / 2;
+      const cy = height / 2;
+
+      // Calculate kinetic speed ratio (0.0 at rest -> 1.0 at MAX_SPEED)
+      const currentSpeed = Math.hypot(velX, velY);
+      const speedRatio = Math.min(currentSpeed / SPHERE_PHYS.MAX_SPEED, 1.0);
+
+      // Subtle centrifugal expansion as the sphere approaches maximum RPM
+      const baseRadius = Math.min(width, height) * 0.395 * (1 + speedRatio * 0.045);
+
+      sCtx.clearRect(0, 0, width, height);
+
+      clockTime += 0.016 * (sphereEnergy + speedRatio * 1.15);
+      sphereEnergy += (targetSphereEnergy - sphereEnergy) * 0.04;
+
+      if (!isDraggingSphere) {
+        rotY += velY * sphereEnergy;
+        rotX += velX;
+
+        // Low-friction flywheel coasting back toward ambient directional spin
+        velX *= SPHERE_PHYS.FRICTION;
+        const targetIdleY = spinDirY * SPHERE_PHYS.BASE_IDLE_SPEED;
+        velY = targetIdleY + (velY - targetIdleY) * SPHERE_PHYS.FRICTION;
+      }
+
+      const cosY = Math.cos(rotY);
+      const sinY = Math.sin(rotY);
+      const cosX = Math.cos(rotX);
+      const sinX = Math.sin(rotX);
+
+      const timeSinceRipple = clockTime - rippleTime;
+      const rippleActive = timeSinceRipple >= 0 && timeSinceRipple < 2.6;
+
+      for (let i = 0; i < sphereParticles.length; i++) {
+        const p = sphereParticles[i];
+
+        let x1 = p.bx * cosY - p.bz * sinY;
+        let z1 = p.bz * cosY + p.bx * sinY;
+        let y1 = p.by * cosX - z1 * sinX;
+        let z2 = z1 * cosX + p.by * sinX;
+
+        const r2dNorm = Math.min(1.15, Math.hypot(x1, y1));
+        const absNz = Math.abs(z2);
+
+        const waveA = Math.sin(x1 * 6.5 + y1 * 5.5 + clockTime * 1.4 + p.seed);
+        const waveB = Math.cos(y1 * 8.0 - z2 * 6.0 - clockTime * 1.1);
+        const waveC = Math.sin(z2 * 10.0 + x1 * 7.0 + clockTime * 0.9);
+        const harmonicNoise = (waveA * 0.45 + waveB * 0.35 + waveC * 0.20);
+
+        let rippleOffset = 0;
+        if (rippleActive) {
+          const waveFront = timeSinceRipple * 1.35;
+          const distFromWave = Math.abs((y1 + 1) - waveFront);
+          if (distFromWave < 0.35) {
+            rippleOffset = Math.cos((distFromWave / 0.35) * (Math.PI / 2)) * 0.055;
+          }
+        }
+
+        let radialScale = 1.0;
+        let alpha = 0.2;
+        let dotSize = p.size;
+
+        if (p.layer === 0) {
+          const internalUndulation = 1.0 + harmonicNoise * 0.028 * (sphereEnergy + speedRatio * 0.45) + rippleOffset;
+          radialScale = internalUndulation;
+
+          const limbFactor = Math.pow(Math.max(0, 1 - absNz), 2.15);
+          const depthDim = z2 > 0 ? 1.0 : 0.58;
+          alpha = (0.13 + limbFactor * 0.68 + speedRatio * 0.14) * depthDim;
+          dotSize = 0.95 + limbFactor * 0.55;
+        } else if (p.layer === 1) {
+          const rimConcentration = Math.pow(Math.min(1, r2dNorm), 2.4);
+          if (r2dNorm < 0.58 && (i % 3 !== 0)) continue;
+
+          const ridgeTurbulence = harmonicNoise * (0.045 + 0.055 * rimConcentration) * (sphereEnergy + speedRatio * 0.6);
+          radialScale = (p.radialScatter || 1.0) + ridgeTurbulence + rippleOffset * 1.3;
+
+          const limbGlow = Math.pow(Math.max(0, 1 - absNz * 0.85), 2.6);
+          alpha = 0.08 + limbGlow * 0.86 + speedRatio * 0.12;
+          dotSize = p.size * (0.85 + limbGlow * 0.65);
+        } else {
+          radialScale = 1.0 + harmonicNoise * 0.02 + rippleOffset;
+          const twinkle = 0.78 + 0.22 * Math.sin(clockTime * 2.5 + p.seed);
+          alpha = twinkle;
+          dotSize = p.size * (1 + speedRatio * 0.15);
+        }
+
+        const px = cx + x1 * baseRadius * radialScale;
+        const py = cy + y1 * baseRadius * radialScale;
+
+        sCtx.fillStyle = `rgba(255, 255, 255, ${Math.min(0.98, Math.max(0.05, alpha)).toFixed(3)})`;
+        sCtx.beginPath();
+        sCtx.arc(px, py, dotSize, 0, Math.PI * 2);
+        sCtx.fill();
+      }
+
+      requestAnimationFrame(renderQuantumSphereFrame);
+    }
+
+    /*****************************************************************
+     * 3. DYNAMIC APPLE TOUCH ICON GENERATOR
+     *****************************************************************/
+    function generateQuantumSphereTouchIcon() {
+      try {
+        const iconCanvas = document.createElement('canvas');
+        iconCanvas.width = 180;
+        iconCanvas.height = 180;
+        const ctx = iconCanvas.getContext('2d');
+
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 180, 180);
+
+        const cx = 90;
+        const cy = 90;
+        const R = 64;
+
+        for (let i = 0; i < sphereParticles.length; i++) {
+          const p = sphereParticles[i];
+          const r2d = Math.hypot(p.bx, p.by);
+          const absZ = Math.abs(p.bz);
+          const noise = Math.sin(p.bx * 7 + p.by * 6 + p.seed) * 0.05;
+          const scale = (p.layer === 1 ? 1.02 + noise : 1.0 + noise * 0.4);
+          const limb = Math.pow(Math.max(0, 1 - absZ), 2.1);
+          const alpha = p.layer === 2 ? 0.95 : Math.min(0.95, 0.14 + limb * 0.78 + (r2d > 0.85 ? 0.25 : 0));
+
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
+          ctx.beginPath();
+          ctx.arc(cx + p.bx * R * scale, cy + p.by * R * scale, p.layer === 2 ? 1.6 : 0.95, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        const dataUrl = iconCanvas.toDataURL('image/png');
+        document.getElementById('apple-touch-icon-link').href = dataUrl;
+        document.getElementById('favicon-link').href = dataUrl;
+      } catch (e) {
+        console.warn('Touch icon render skipped:', e);
+      }
+    }
+
+    /*****************************************************************
+     * 4. VIEW 1: SLATE RENDERER & ONE-TAP CLIPBOARD ACTIONS
+     *****************************************************************/
+    function normalizeCandidate(item, idx) {
+      const rank = item.rank || (idx + 1);
+      const ticker = (item.ticker || 'MU').toUpperCase();
+      const uInfo = UNIVERSE_BY_TICKER[ticker] || { name: `${ticker} Corp.`, category: 'AI_Infra' };
+      const rawScore = item.score !== undefined ? item.score : (item.mos_score !== undefined ? item.mos_score : '100.0');
+      const rawLimit = item.limit !== undefined ? item.limit : (item.limit_price !== undefined ? item.limit_price : '0.00');
+      const rawSpot = item.spot !== undefined ? item.spot : (item.spot_price !== undefined ? item.spot_price : '0.00');
+
+      const numScore = parseFloat(rawScore);
+      const numLimit = parseFloat(String(rawLimit).replace(/[^0-9.]/g, ''));
+      const numSpot = parseFloat(String(rawSpot).replace(/[^0-9.]/g, ''));
+
+      return {
+        rank,
+        ticker,
+        name: item.name || uInfo.name,
+        theme: item.theme || uInfo.category || 'AI_Infra',
+        score: !isNaN(numScore) ? numScore.toFixed(numScore === 100 ? 1 : 2) : String(rawScore),
+        limit: !isNaN(numLimit) ? numLimit.toFixed(2) : String(rawLimit),
+        spot: !isNaN(numSpot) ? numSpot.toFixed(2) : String(rawSpot),
+        allocation: item.allocation || '$340.00',
+        shares: item.shares || (!isNaN(numLimit) && numLimit > 0 ? `~${(340 / numLimit).toFixed(4)} shs` : 'Active'),
+        roleLabel: item.roleLabel || (
+          rank === 1
+            ? 'Primary Target · 100% Conviction'
+            : rank === 2
+              ? 'Fallback #1 · Slippage Guard'
+              : 'Fallback #2 · Secondary Guard'
+        )
+      };
+    }
+
+    function renderSlateView(customSlate) {
+      const slate = customSlate || activeSlate || DEFAULT_W43_SLATE;
+      const container = document.getElementById('slate-cards-list');
+      if (!container) return;
+
+      const rawCandidates = (slate.candidates && slate.candidates.length > 0)
+        ? slate.candidates
+        : DEFAULT_W43_SLATE.candidates;
+
+      const normalized = rawCandidates.slice(0, 3).map((c, idx) => normalizeCandidate(c, idx));
+
+      // Update Top Header & Hero Centerpiece Readout
+      const cycleText = String(slate.cycle || '2026-W43').replace(/^Week\s+/i, '');
+      document.getElementById('header-cycle-badge').textContent = cycleText;
+
+      if (normalized[0]) {
+        document.getElementById('hero-primary-ticker').textContent = normalized[0].ticker;
+        document.getElementById('hero-primary-score').textContent = normalized[0].score;
+        document.getElementById('hero-primary-limit').textContent = `$${normalized[0].limit}`;
+      }
+
+      if (slate.gateTitle) {
+        document.getElementById('routing-gate-title').textContent = slate.gateTitle;
+      }
+      if (slate.gateDesc) {
+        document.getElementById('routing-gate-desc').innerHTML = slate.gateDesc;
+      }
+
+      document.getElementById('raw-payload-pre').textContent = slate.rawStream || DEFAULT_W43_RAW_STREAM;
+
+      // Render Obsidian Glass Candidate Execution Cards
+      container.innerHTML = normalized.map((item) => {
+        const isPrimary = item.rank === 1;
+        const surfaceClass = isPrimary ? 'glass-surface-active' : 'glass-surface';
+        const badgeClass = isPrimary
+          ? 'bg-white text-black font-semibold'
+          : 'bg-white/10 text-white font-medium';
+
+        return `
+          <div class="${surfaceClass} p-4 space-y-3.5">
+            <div class="flex items-start justify-between gap-2">
+              <div class="space-y-0.5">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-mono ${badgeClass}">#${item.rank}</span>
+                  <span class="font-mono text-base font-semibold text-white tracking-tight">${item.ticker}</span>
+                  <span class="text-xs text-[#8E8E93] truncate">${item.name}</span>
+                </div>
+                <div class="text-[11px] text-[#8E8E93]">${item.roleLabel}</div>
+              </div>
+
+              <div class="text-right shrink-0">
+                <div class="font-mono text-xs font-semibold text-white tabular">Score ${item.score}</div>
+                <div class="font-mono text-[10px] text-[#8E8E93] mt-0.5">${item.theme}</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 pt-2 border-t border-white/10 font-mono tabular">
+              <div>
+                <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">ATR Limit</div>
+                <div class="text-sm font-semibold text-white mt-0.5">$${item.limit}</div>
+              </div>
+              <div>
+                <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">Spot Price</div>
+                <div class="text-sm text-[#8E8E93] mt-0.5">$${item.spot}</div>
+              </div>
+              <div class="text-right">
+                <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">Allocation</div>
+                <div class="text-sm font-medium text-white mt-0.5">${item.allocation}</div>
+                <div class="text-[10px] text-[#8E8E93]">${item.shares}</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-1">
+              <button onclick="copyLimitToClipboard('${item.limit}', '${item.ticker}')" class="pressable flex-1 py-2 px-3 rounded-full ${isPrimary ? 'bg-white text-black font-semibold' : 'bg-white/10 text-white font-medium'} text-xs font-mono tracking-tight">
+                Copy Limit $${item.limit}
+              </button>
+              <button onclick="copyFullTicketLine('${item.ticker}', '${item.limit}', '${item.allocation}', '${item.shares}')" class="pressable py-2 px-3.5 rounded-full bg-white/5 border border-white/10 text-xs text-[#8E8E93] hover:text-white font-mono">
+                Ticket
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /*****************************************************************
+     * 5. VIEW 2: VAULT & S&P 500 CRASH OVERRIDE SIMULATOR
+     *****************************************************************/
+    function renderVaultView() {
+      const storedVault = localStorage.getItem('ve_minimal_vault_usd');
+      if (storedVault !== null && !isNaN(parseFloat(storedVault))) {
+        vaultReserveUSD = parseFloat(storedVault);
+      }
+
+      const halfTranche = +(vaultReserveUSD * 0.5).toFixed(2);
+      const weeksReserved = Math.max(0, Math.round(vaultReserveUSD / 60));
+
+      document.getElementById('vault-balance-display').textContent =
+        `$${vaultReserveUSD.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      document.getElementById('vault-tranche-display').textContent =
+        `+$${halfTranche.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      document.getElementById('vault-weeks-display').textContent =
+        `${weeksReserved} Week${weeksReserved === 1 ? '' : 's'} Reserved`;
+
+      const sliderVal = document.getElementById('drawdown-slider').value;
+      updateDrawdownSimulator(sliderVal);
+    }
+
+    function adjustVaultBalance(delta) {
+      vaultReserveUSD = Math.max(0, +(vaultReserveUSD + delta).toFixed(2));
+      localStorage.setItem('ve_minimal_vault_usd', String(vaultReserveUSD));
+      renderVaultView();
+      triggerSphereRipple(1.5);
+      showCapsuleToast(`Vault Reserve: $${vaultReserveUSD.toFixed(2)}`);
+    }
+
+    function toggleVaultCustomEdit() {
+      const row = document.getElementById('vault-custom-row');
+      row.classList.toggle('hidden');
+      document.getElementById('vault-custom-input').value = vaultReserveUSD;
+    }
+
+    function saveCustomVaultBalance() {
+      const val = parseFloat(document.getElementById('vault-custom-input').value);
+      if (!isNaN(val) && val >= 0) {
+        vaultReserveUSD = +val.toFixed(2);
+        localStorage.setItem('ve_minimal_vault_usd', String(vaultReserveUSD));
+        document.getElementById('vault-custom-row').classList.add('hidden');
+        renderVaultView();
+        triggerSphereRipple(1.6);
+        showCapsuleToast(`Vault Set: $${vaultReserveUSD.toFixed(2)}`);
+      }
+    }
+
+    function updateDrawdownSimulator(val) {
+      const drawdown = parseFloat(val);
+      const isOverride = drawdown <= -15.0;
+
+      const cardEl = document.getElementById('crash-gate-card');
+      const pillEl = document.getElementById('crash-gate-pill');
+      const readoutEl = document.getElementById('drawdown-readout');
+      const breakdownEl = document.getElementById('drawdown-breakdown');
+      const totalEl = document.getElementById('drawdown-total-deploy');
+      const headerRegimeEl = document.getElementById('header-regime-label');
+
+      readoutEl.textContent = `${drawdown.toFixed(1)}%`;
+
+      if (isOverride) {
+        const vaultRelease = +(vaultReserveUSD * 0.5).toFixed(2);
+        const totalDeploy = +(340.00 + vaultRelease).toFixed(2);
+
+        cardEl.className = 'glass-surface-active p-5 space-y-4';
+        pillEl.className = 'px-2.5 py-1 rounded-full bg-white text-black font-mono text-[10px] font-semibold uppercase tracking-wider';
+        pillEl.textContent = 'Crash Override Active';
+        headerRegimeEl.textContent = 'Crash Override (-15%)';
+        headerRegimeEl.className = 'text-[11px] font-mono text-white font-medium';
+
+        breakdownEl.textContent = `$340.00 Base + $${vaultRelease.toFixed(2)} (50% Vault)`;
+        totalEl.textContent = `$${totalDeploy.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+        targetSphereEnergy = 1.95;
+      } else {
+        cardEl.className = 'glass-surface p-5 space-y-4';
+        pillEl.className = 'px-2.5 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-[#8E8E93] uppercase tracking-wider';
+        pillEl.textContent = 'Standby';
+        headerRegimeEl.textContent = 'Normal Regime';
+        headerRegimeEl.className = 'text-[11px] font-mono text-[#8E8E93]';
+
+        breakdownEl.textContent = `$340.00 Base + $0.00 Vault (+$60.00 Saved)`;
+        totalEl.textContent = `$340.00`;
+
+        targetSphereEnergy = 1.0;
+      }
+    }
+
+    /*****************************************************************
+     * 6. VIEW 3: ELITE 15 UNIVERSE RENDERER
+     *****************************************************************/
+    function setUniverseFilter(category) {
+      activeUniverseCategory = category;
+      document.querySelectorAll('.u-pill').forEach(btn => {
+        btn.className = 'u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0';
+      });
+      const activeBtn = document.getElementById(`u-pill-${category}`);
+      if (activeBtn) {
+        activeBtn.className = 'u-pill px-3 py-1 rounded-full bg-white text-black font-medium shrink-0';
+      }
+      renderUniverseList();
+    }
+
+    function renderUniverseList() {
+      const query = (document.getElementById('universe-search').value || '').toLowerCase().trim();
+      const container = document.getElementById('universe-list-container');
+      container.innerHTML = '';
+
+      const filtered = ELITE_15_UNIVERSE.filter(item => {
+        const matchCat = activeUniverseCategory === 'All' || item.category === activeUniverseCategory;
+        const matchQuery = !query ||
+          item.ticker.toLowerCase().includes(query) ||
+          item.name.toLowerCase().includes(query) ||
+          item.role.toLowerCase().includes(query) ||
+          item.category.toLowerCase().includes(query);
+        return matchCat && matchQuery;
+      });
+
+      const cycleShort = String(activeSlate.cycle || 'W43').replace(/^202\d-/, '');
+
+      filtered.forEach(item => {
+        const inActiveSlate = (activeSlate.candidates || []).find(c => c.ticker === item.ticker);
+        const rowHtml = `
+          <div class="p-4 flex items-center justify-between gap-3">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-sm font-semibold text-white">${item.ticker}</span>
+                <span class="text-xs text-[#8E8E93]">${item.name}</span>
+                ${inActiveSlate ? `<span class="px-2 py-0.5 rounded-full bg-white text-black font-mono text-[9px] font-semibold">${cycleShort} #${inActiveSlate.rank || 1}</span>` : ''}
+              </div>
+              <p class="text-[11px] text-[#8E8E93]">${item.role}</p>
+            </div>
+            <span class="shrink-0 font-mono text-[10px] text-[#8E8E93] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
+              ${item.category}
+            </span>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', rowHtml);
+      });
+    }
+
+    /*****************************************************************
+     * 7. VIEW 4: SYSTEM UPLINK (DUAL-SYNC: GITHUB STATE + NTFY.SH)
+     *****************************************************************/
+    function loadSystemConfig() {
+      const savedTopic = localStorage.getItem('ve_minimal_ntfy_topic') || '';
+      const savedRepo = localStorage.getItem('ve_minimal_gh_repo') || 'osaul23/fridayvalueengine';
+      const savedPat = localStorage.getItem('ve_minimal_gh_pat') || '';
+
+      document.getElementById('cfg-ntfy-topic').value = savedTopic;
+      document.getElementById('cfg-gh-repo').value = savedRepo;
+      document.getElementById('cfg-gh-pat').value = savedPat;
+
+      const cachedSlate = localStorage.getItem('ve_minimal_cached_slate');
+      if (cachedSlate) {
+        try {
+          const parsed = JSON.parse(cachedSlate);
+          if (parsed && parsed.candidates && parsed.candidates.length > 0) {
+            activeSlate = parsed;
+          }
+        } catch (e) {
+          activeSlate = JSON.parse(JSON.stringify(DEFAULT_W43_SLATE));
+        }
+      }
+    }
+
+    function saveSystemConfig() {
+      const topic = document.getElementById('cfg-ntfy-topic').value.trim();
+      const repo = document.getElementById('cfg-gh-repo').value.trim() || 'osaul23/fridayvalueengine';
+      const pat = document.getElementById('cfg-gh-pat').value.trim();
+
+      localStorage.setItem('ve_minimal_ntfy_topic', topic);
+      localStorage.setItem('ve_minimal_gh_repo', repo);
+      localStorage.setItem('ve_minimal_gh_pat', pat);
+
+      triggerSphereRipple(1.7);
+      showCapsuleToast('System Uplink Saved');
+    }
+
+    async function pollNtfyStream() {
+      const topic = (localStorage.getItem('ve_minimal_ntfy_topic') || document.getElementById('cfg-ntfy-topic').value || '').trim();
+      const repoPath = (localStorage.getItem('ve_minimal_gh_repo') || document.getElementById('cfg-gh-repo').value || 'osaul23/fridayvalueengine').trim();
+
+      const spinner = document.getElementById('sync-spinner');
+      spinner.classList.add('animate-spin');
+      targetSphereEnergy = 2.1;
+      document.getElementById('hero-sub-status').textContent = 'Syncing live engine state...';
+
+      let syncedFromStateFile = false;
+      let syncedWeek = activeSlate.cycle || '2026-W43';
+
+      try {
+        // STEP 1: Fetch value_engine_state.json from GitHub Repo for Dry Powder & Candidates
+        try {
+          const stateUrl = `https://raw.githubusercontent.com/${repoPath}/main/value_engine_state.json?t=${Date.now()}`;
+          const stateRes = await fetch(stateUrl, { cache: 'no-store' });
+          if (stateRes.ok) {
+            const state = await stateRes.json();
+            if (state && state.last_run_week) {
+              syncedWeek = String(state.last_run_week);
+              activeSlate.cycle = syncedWeek;
+            }
+            if (state && typeof state.dry_powder_usd === 'number' && !isNaN(state.dry_powder_usd)) {
+              vaultReserveUSD = +state.dry_powder_usd.toFixed(2);
+              localStorage.setItem('ve_minimal_vault_usd', String(vaultReserveUSD));
+              renderVaultView();
+            }
+            if (state && Array.isArray(state.candidates) && state.candidates.length > 0) {
+              activeSlate.candidates = state.candidates.slice(0, 3).map((c, i) => normalizeCandidate(c, i));
+              syncedFromStateFile = true;
+            }
+          }
+        } catch (stateErr) {
+          console.warn('GitHub state fetch skipped:', stateErr);
+        }
+
+        // STEP 2: Poll ntfy.sh broadcast stream if topic is configured
+        if (topic) {
+          const ntfyRes = await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}/json?poll=1`, {
+            cache: 'no-store'
+          });
+          if (ntfyRes.ok) {
+            const rawNdjson = (await ntfyRes.text()).trim();
+            if (rawNdjson) {
+              // Extract the latest message body from ntfy NDJSON lines
+              const lines = rawNdjson.split(/\r?\n/).filter(Boolean);
+              let latestMessageText = '';
+
+              for (let i = lines.length - 1; i >= 0; i--) {
+                try {
+                  const obj = JSON.parse(lines[i]);
+                  if (obj && obj.event === 'message' && obj.message && /#1\s+[A-Z]+/i.test(obj.message)) {
+                    latestMessageText = obj.message;
+                    break;
+                  }
+                } catch (e) {
+                  // Fallback if raw text stream was returned
+                  if (/#1\s+[A-Z]+/i.test(rawNdjson)) {
+                    latestMessageText = rawNdjson;
+                    break;
+                  }
+                }
+              }
+
+              if (latestMessageText) {
+                const parsed = parseNtfyBroadcast(latestMessageText);
+                if (parsed && parsed.candidates.length > 0) {
+                  activeSlate = parsed;
+                  syncedFromStateFile = true;
+                }
+              }
+            }
+          }
+        }
+
+        localStorage.setItem('ve_minimal_cached_slate', JSON.stringify(activeSlate));
+        renderSlateView();
+        renderUniverseList();
+        switchView('slate');
+        triggerSphereRipple(2.2);
+
+        if (syncedFromStateFile) {
+          showCapsuleToast(`Synced ${activeSlate.cycle}`);
+          document.getElementById('hero-sub-status').textContent = `Synced live state · ${activeSlate.cycle}`;
+        } else {
+          showCapsuleToast(`State Synced · ${syncedWeek}`);
+          document.getElementById('hero-sub-status').textContent = `Vault $${vaultReserveUSD.toFixed(0)} synced · ${syncedWeek}`;
+        }
+      } catch (err) {
+        showCapsuleToast('Sync Fallback Active');
+        document.getElementById('hero-sub-status').textContent = 'Showing verified Week 43 slate';
+      } finally {
+        spinner.classList.remove('animate-spin');
+        targetSphereEnergy = 1.0;
+      }
+    }
+
+    function parseNtfyBroadcast(rawText) {
+      const weekMatch = rawText.match(/Week:\s*([0-9A-Za-z-_]+)/i) || rawText.match(/202\d-W\d+/i);
+      const cycle = weekMatch ? (weekMatch[1] || weekMatch[0]) : '2026-W43';
+
+      const lines = rawText.split(/\r?\n/);
+      const candidates = [];
+      let current = null;
+
+      for (const line of lines) {
+        const headerMatch = line.match(/#([123])\s+([A-Z]{1,5})\s*(?:\(([^)]+)\))?\s*\|\s*Score:\s*([0-9.]+)/i);
+        if (headerMatch) {
+          if (current) candidates.push(current);
+          const rank = parseInt(headerMatch[1], 10);
+          const ticker = headerMatch[2].toUpperCase();
+          const uInfo = UNIVERSE_BY_TICKER[ticker] || { name: `${ticker} Corp.`, category: 'AI_Infra' };
+
+          current = {
+            rank,
+            ticker,
+            name: uInfo.name,
+            theme: headerMatch[3] || uInfo.category,
+            score: headerMatch[4],
+            limit: '0.00',
+            spot: '0.00',
+            allocation: '$340.00',
+            shares: 'Active',
+            roleLabel: rank === 1
+              ? 'Primary Target · 100% Conviction'
+              : rank === 2
+                ? 'Fallback #1 · Slippage Guard'
+                : 'Fallback #2 · Secondary Guard'
+          };
+
+          const inlineLim = line.match(/Limit:\s*\$?([0-9.]+)/i);
+          const inlineSpot = line.match(/(?:Spot|Price):\s*\$?([0-9.]+)/i);
+          if (inlineLim) current.limit = parseFloat(inlineLim[1]).toFixed(2);
+          if (inlineSpot) current.spot = parseFloat(inlineSpot[1]).toFixed(2);
+          continue;
+        }
+
+        if (current) {
+          const limSpot = line.match(/Limit:\s*\$?([0-9.]+)\s*\(Spot:\s*\$?([0-9.]+)\)/i);
+          if (limSpot) {
+            current.limit = parseFloat(limSpot[1]).toFixed(2);
+            current.spot = parseFloat(limSpot[2]).toFixed(2);
+          }
+          const ordMatch = line.match(/Order:\s*(\$[0-9.]+)\s*\(([^)]+)\)/i);
+          if (ordMatch) {
+            const ordNum = parseFloat(ordMatch[1].replace('$', ''));
+            current.allocation = !isNaN(ordNum) ? `$${ordNum.toFixed(2)}` : ordMatch[1];
+            current.shares = ordMatch[2];
+          }
+        }
+      }
+      if (current) candidates.push(current);
+
+      const isSplit = /60\/40/i.test(rawText) && !/bypassed/i.test(rawText);
+      return {
+        cycle,
+        gateTitle: isSplit ? '60/40 Cross-Theme Split Active' : '100% Single-Target Allocation',
+        gateDesc: DEFAULT_W43_SLATE.gateDesc,
+        rawStream: rawText,
+        candidates: candidates.slice(0, 3)
+      };
+    }
+
+    async function triggerLiveGitHubScan() {
+      const repoPath = (localStorage.getItem('ve_minimal_gh_repo') || document.getElementById('cfg-gh-repo').value || 'osaul23/fridayvalueengine').trim();
+      const pat = (localStorage.getItem('ve_minimal_gh_pat') || document.getElementById('cfg-gh-pat').value || '').trim();
+
+      if (!repoPath || !pat || !repoPath.includes('/')) {
+        showCapsuleToast('Configure GitHub PAT in System');
+        switchView('system');
+        return;
+      }
+
+      const overlay = document.getElementById('sphere-scan-overlay');
+      const timerEl = document.getElementById('sphere-scan-timer');
+      const labelEl = document.getElementById('sphere-scan-label');
+
+      overlay.classList.remove('opacity-0');
+      overlay.classList.add('opacity-100');
+      timerEl.textContent = '35s';
+      labelEl.textContent = 'Dispatching';
+      targetSphereEnergy = 2.6;
+
+      try {
+        const [owner, repo] = repoPath.split('/');
+        const res = await fetch(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/actions/workflows/friday_deployment.yml/dispatches`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${pat}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ ref: 'main' })
+        });
+
+        if (res.status !== 204 && !res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+
+        showCapsuleToast('GitHub Scan Dispatched');
+        let remaining = 35;
+        if (scanTimerInterval) clearInterval(scanTimerInterval);
+
+        scanTimerInterval = setInterval(() => {
+          remaining -= 1;
+          timerEl.textContent = `${remaining}s`;
+          if (remaining === 24) labelEl.textContent = 'Scoring Moats';
+          if (remaining === 12) labelEl.textContent = 'ATR Limit Calc';
+          if (remaining === 4) labelEl.textContent = 'Pushing Alert';
+
+          if (remaining <= 0) {
+            clearInterval(scanTimerInterval);
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            targetSphereEnergy = 1.0;
+            pollNtfyStream();
+          }
+        }, 1000);
+      } catch (err) {
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0');
+        targetSphereEnergy = 1.0;
+        showCapsuleToast(`Dispatch Error: ${err.message}`);
+      }
+    }
+
+    function restoreVerifiedWeek43() {
+      activeSlate = JSON.parse(JSON.stringify(DEFAULT_W43_SLATE));
+      localStorage.setItem('ve_minimal_cached_slate', JSON.stringify(activeSlate));
+      renderSlateView();
+      renderUniverseList();
+      switchView('slate');
+      triggerSphereRipple(1.8);
+      showCapsuleToast('Restored Verified Week 43');
+    }
+
+    /*****************************************************************
+     * 8. CLIPBOARD, SOURCE EXPORT & NAVIGATION HELPERS
+     *****************************************************************/
+    function copyTextToClipboard(text, message) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy');
+        triggerSphereRipple(1.75);
+        showCapsuleToast(message);
+      } catch (e) {
+        showCapsuleToast('Copy Failed');
+      }
+      document.body.removeChild(ta);
+    }
+
+    function copyLimitToClipboard(limitPrice, ticker) {
+      const numeric = String(limitPrice).replace(/[^0-9.]/g, '');
+      copyTextToClipboard(numeric, `Copied ${ticker} Limit · $${numeric}`);
+    }
+
+    function copyFullTicketLine(ticker, limitPrice, allocation, shares) {
+      const summary = `${ticker} | Limit: $${limitPrice} | Order: ${allocation} (${shares})`;
+      copyTextToClipboard(summary, `Copied ${ticker} Order Ticket`);
+    }
+
+    function copyRawBroadcast() {
+      copyTextToClipboard(activeSlate.rawStream || DEFAULT_W43_RAW_STREAM, 'Copied Raw Telemetry Stream');
+    }
+
+    function copyCompleteHtmlSource() {
+      const fullSource = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      copyTextToClipboard(fullSource, 'Copied Complete index.html');
+    }
+
+    function toggleSourceInspector() {
+      const box = document.getElementById('source-inspector-box');
+      const area = document.getElementById('source-inspector-textarea');
+      box.classList.toggle('hidden');
+      if (!box.classList.contains('hidden')) {
+        area.value = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      }
+    }
+
+    function toggleRawPayloadDrawer() {
+      const drawer = document.getElementById('raw-payload-drawer');
+      const label = document.getElementById('raw-drawer-label');
+      drawer.classList.toggle('hidden');
+      label.textContent = drawer.classList.contains('hidden') ? 'Inspect' : 'Hide';
+    }
+
+    function togglePatVisibility() {
+      const input = document.getElementById('cfg-gh-pat');
+      const btn = document.getElementById('pat-toggle-label');
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = 'Hide';
+      } else {
+        input.type = 'password';
+        btn.textContent = 'Show';
+      }
+    }
+
+    function switchView(viewName) {
+      const views = ['slate', 'vault', 'universe', 'system'];
+      views.forEach(v => {
+        const panel = document.getElementById(`view-${v}`);
+        const seg = document.getElementById(`seg-${v}`);
+        if (v === viewName) {
+          panel.classList.remove('hidden');
+          seg.classList.add('active');
+        } else {
+          panel.classList.add('hidden');
+          seg.classList.remove('active');
+        }
+      });
+    }
+
+    let capsuleToastTimeout = null;
+    function showCapsuleToast(message) {
+      const toast = document.getElementById('capsule-toast');
+      const msgEl = document.getElementById('toast-message');
+      msgEl.textContent = message;
+
+      toast.classList.remove('opacity-0', '-translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      if (capsuleToastTimeout) clearTimeout(capsuleToastTimeout);
+      capsuleToastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', '-translate-y-3');
+      }, 2200);
+    }
+
+    /*****************************************************************
+     * 9. INITIALIZE ON WINDOW LOAD
+     *****************************************************************/
+    window.onload = function () {
+      buildQuantumSphereParticles();
+      resizeSphereCanvas();
+      window.addEventListener('resize', resizeSphereCanvas);
+
+      generateQuantumSphereTouchIcon();
+      loadSystemConfig();
+      renderSlateView();
+      renderVaultView();
+      renderUniverseList();
+
+      renderQuantumSphereFrame();
+    };
+  </script>
+</body>
+</html>
