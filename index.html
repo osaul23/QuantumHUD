@@ -184,7 +184,7 @@
   <div id="capsule-toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-3 transition-all duration-300" style="margin-top: var(--safe-top);">
     <div class="px-4 py-2 rounded-full bg-white text-black shadow-2xl flex items-center gap-2.5 text-xs font-medium tracking-tight">
       <span id="toast-dot" class="w-2 h-2 rounded-full bg-black"></span>
-      <span id="toast-message" class="font-mono font-semibold">Copied $881.13</span>
+      <span id="toast-message" class="font-mono font-semibold">Copied $891.33</span>
     </div>
   </div>
 
@@ -234,7 +234,7 @@
           <span class="text-[#48484A]">·</span>
           <span id="hero-primary-score" class="text-white tabular">100.0</span>
           <span class="text-[#48484A]">·</span>
-          <span id="hero-primary-limit" class="text-white font-semibold tabular">$881.13</span>
+          <span id="hero-primary-limit" class="text-white font-semibold tabular">$891.33</span>
         </div>
         <p id="hero-sub-status" class="text-[11px] text-[#8E8E93] tracking-tight">
           Drag sphere to inspect · Tap to pulse harmonic field
@@ -372,17 +372,17 @@
         <div class="flex items-start justify-between">
           <div>
             <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">Dry Powder Vault</div>
-            <div id="vault-balance-display" class="text-3xl font-semibold tracking-tight text-white mt-1 font-mono tabular">$1,260.00</div>
+            <div id="vault-balance-display" class="text-3xl font-semibold tracking-tight text-white mt-1 font-mono tabular">$540.00</div>
           </div>
           <div class="text-right font-mono tabular">
             <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">50% Crash Tranche</div>
-            <div id="vault-tranche-display" class="text-sm font-medium text-white mt-0.5">+$630.00</div>
+            <div id="vault-tranche-display" class="text-sm font-medium text-white mt-0.5">+$270.00</div>
           </div>
         </div>
 
         <div class="flex items-center justify-between text-[11px] text-[#8E8E93] border-t border-white/5 pt-3">
           <span>Accumulated at $60.00 / week</span>
-          <span id="vault-weeks-display" class="font-mono text-white tabular">21 Weeks Reserved</span>
+          <span id="vault-weeks-display" class="font-mono text-white tabular">9 Weeks Reserved</span>
         </div>
 
         <!-- Stepper Controls -->
@@ -400,7 +400,7 @@
 
         <!-- Optional Custom Balance Input -->
         <div id="vault-custom-row" class="hidden pt-2 border-t border-white/5 flex items-center gap-2">
-          <input id="vault-custom-input" type="number" step="10" min="0" placeholder="1260.00" class="w-full px-3.5 py-2 rounded-full bg-black border border-white/15 font-mono text-xs text-white focus:outline-none focus:border-white">
+          <input id="vault-custom-input" type="number" step="10" min="0" placeholder="540.00" class="w-full px-3.5 py-2 rounded-full bg-black border border-white/15 font-mono text-xs text-white focus:outline-none focus:border-white">
           <button onclick="saveCustomVaultBalance()" class="pressable px-4 py-2 rounded-full bg-white text-black text-xs font-semibold shrink-0">
             Save
           </button>
@@ -507,7 +507,7 @@
           <div class="text-[11px] uppercase tracking-[0.14em] text-[#8E8E93]">Telemetry &amp; Automation</div>
           <div class="text-base font-medium text-white mt-0.5">Uplink Configuration</div>
           <p class="text-xs text-[#8E8E93] mt-1 leading-relaxed">
-            Stored locally on this iPhone (`localStorage`). Used solely to poll your `ntfy.sh` feed and dispatch `friday_deployment.yml`.
+            Stored locally on this iPhone (`localStorage`). Polls both `value_engine_state.json` and your `ntfy.sh` live broadcast stream.
           </p>
         </div>
 
@@ -519,7 +519,7 @@
 
           <div>
             <label class="block text-[11px] text-[#8E8E93] mb-1.5">GitHub Repository (owner/repo)</label>
-            <input id="cfg-gh-repo" type="text" placeholder="username/fridayvalueengine" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/10 font-mono text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40">
+            <input id="cfg-gh-repo" type="text" placeholder="osaul23/fridayvalueengine" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/10 font-mono text-xs text-white placeholder-[#48484A] focus:outline-none focus:border-white/40">
           </div>
 
           <div>
@@ -582,24 +582,24 @@
     /*****************************************************************
      * 1. VERIFIED WEEK 43 SLATE & ELITE 15 MOAT UNIVERSE DATA
      *****************************************************************/
-    const DEFAULT_W43_RAW_STREAM = `VALUE ENGINE // WEEKLY EXECUTION TICKET
-Week: 2026-W43 | Regime: NORMAL (S&P 500 Drawdown: -4.2% | Gate: -15.0%)
-Weekly Commitment: $400.00 ($340.00 Active Equity [85%] | +$60.00 Dry Powder Vault [15%])
-Routing Gate: 100% SINGLE-TARGET ALLOCATION (Top Candidates Share Theme: AI_Infra)
+    const DEFAULT_W43_RAW_STREAM = `Week: 2026-W43 | Dry Powder Route: $60.00
 
 #1 MU (AI_Infra) | Score: 100.0
-Limit: $881.13 (Spot: $905.44) | Order: $340.00 (0.3859 shs) | Primary Conviction Target
+  Limit: $891.33 (Spot: $904.90)
+  Order: $340.0 (~0.3815 shs)
 
-#2 VRT (AI_Infra) | Score: 95.31
-Limit: $202.02 (Spot: $207.24) | Order: $340.00 (1.6830 shs) | Fallback #1 (Slippage Guard)
+#2 VRT (AI_Infra) | Score: 95.43
+  Limit: $202.99 (Spot: $206.08)
+  Order: $340.0 (~1.675 shs)
 
-#3 AVGO (AI_Infra) | Score: 88.86
-Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Secondary Guard)`;
+#3 AVGO (AI_Infra) | Score: 89.68
+  Limit: $329.57 (Spot: $334.59)
+  Order: $340.0 (~1.0316 shs)`;
 
     const DEFAULT_W43_SLATE = {
       cycle: '2026-W43',
       gateTitle: '100% Single-Target Allocation',
-      gateDesc: 'Top candidates share AI_Infra. 60/40 cross-theme split bypassed; #2 and #3 stand by as limit slippage guards.',
+      gateDesc: 'Top candidates share <span class="text-white font-mono">AI_Infra</span>. 60/40 cross-theme split bypassed; #2 and #3 stand by as limit slippage guards.',
       rawStream: DEFAULT_W43_RAW_STREAM,
       candidates: [
         {
@@ -608,10 +608,10 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
           name: 'Micron Technology',
           theme: 'AI_Infra',
           score: '100.0',
-          limit: '881.13',
-          spot: '905.44',
+          limit: '891.33',
+          spot: '904.90',
           allocation: '$340.00',
-          shares: '0.3859 shs',
+          shares: '~0.3815 shs',
           roleLabel: 'Primary Target · 100% Conviction'
         },
         {
@@ -619,11 +619,11 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
           ticker: 'VRT',
           name: 'Vertiv Holdings',
           theme: 'AI_Infra',
-          score: '95.31',
-          limit: '202.02',
-          spot: '207.24',
+          score: '95.43',
+          limit: '202.99',
+          spot: '206.08',
           allocation: '$340.00',
-          shares: '1.6830 shs',
+          shares: '~1.675 shs',
           roleLabel: 'Fallback #1 · Slippage Guard'
         },
         {
@@ -631,11 +631,11 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
           ticker: 'AVGO',
           name: 'Broadcom Inc.',
           theme: 'AI_Infra',
-          score: '88.86',
-          limit: '330.19',
-          spot: '336.07',
+          score: '89.68',
+          limit: '329.57',
+          spot: '334.59',
           allocation: '$340.00',
-          shares: '1.0297 shs',
+          shares: '~1.0316 shs',
           roleLabel: 'Fallback #2 · Secondary Guard'
         }
       ]
@@ -663,16 +663,12 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
 
     // Active Application State
     let activeSlate = JSON.parse(JSON.stringify(DEFAULT_W43_SLATE));
-    let vaultReserveUSD = 1260.00; // Default 21 weeks accumulated ($60/wk)
+    let vaultReserveUSD = 540.00; // Matches live value_engine_state.json reserve
     let activeUniverseCategory = 'All';
     let scanTimerInterval = null;
 
     /*****************************************************************
-     * 2. 3D QUANTUM POINT-CLOUD SPHERE ENGINE (MATCHING REFERENCE)
-     *    - Layer 1: Inner Structured Spherical Dot-Matrix Grid (~2,450 pts)
-     *    - Layer 2: Organic Turbulent Rim / Corona (~1,550 pts)
-     *    - Layer 3: Bright Quantum Singularity Interior Nodes (24 pts)
-     *    - Fresnel Limb Brightening + Interactive Drag & Ripple Physics
+     * 2. 3D QUANTUM POINT-CLOUD SPHERE ENGINE
      *****************************************************************/
     const sphereCanvas = document.getElementById('quantum-sphere-canvas');
     const sCtx = sphereCanvas.getContext('2d');
@@ -687,24 +683,21 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
     let dragStartY = 0;
     let pointerDownTime = 0;
 
-    // Dynamic state multipliers for the Quantum Sphere
-    let sphereEnergy = 1.0;       // 1.0 = normal, 1.9 = crash override, 2.5 = live scan
+    let sphereEnergy = 1.0;
     let targetSphereEnergy = 1.0;
-    let rippleTime = -100;        // Triggers radial harmonic pulse when tapped/copied
+    let rippleTime = -100;
     let clockTime = 0;
 
     function buildQuantumSphereParticles() {
       sphereParticles.length = 0;
 
-      // 1. INNER STRUCTURED LATITUDE / LONGITUDE DOT-MATRIX GRID (~2,450 points)
-      // Creates the curved geometric dot-matrix pattern visible inside the dark core of the reference image
+      // 1. INNER STRUCTURED LATITUDE / LONGITUDE DOT-MATRIX GRID
       const latRings = 44;
       for (let i = 1; i < latRings; i++) {
-        const phi = (Math.PI * i) / latRings; // 0 to PI
+        const phi = (Math.PI * i) / latRings;
         const sinPhi = Math.sin(phi);
         const cosPhi = Math.cos(phi);
 
-        // Scale points per ring by circumference so spacing is uniform & structured
         const lonCount = Math.max(14, Math.round(74 * sinPhi));
         for (let j = 0; j < lonCount; j++) {
           const theta = (2 * Math.PI * j) / lonCount;
@@ -712,15 +705,14 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
             bx: sinPhi * Math.cos(theta),
             by: cosPhi,
             bz: sinPhi * Math.sin(theta),
-            layer: 0, // Structured grid
+            layer: 0,
             seed: (i * 0.37) + (j * 0.19),
             size: 1.05
           });
         }
       }
 
-      // 2. ORGANIC TURBULENT RIM / CORONA SHELL (~1,550 points)
-      // Displaced by 3D multi-harmonic spatial wave interference to form undulating ridges & tendrils
+      // 2. ORGANIC TURBULENT RIM / CORONA SHELL
       const coronaCount = 1550;
       const goldenAngle = Math.PI * (3 - Math.sqrt(5));
       for (let i = 0; i < coronaCount; i++) {
@@ -734,14 +726,14 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
           bx: x,
           by: y,
           bz: z,
-          layer: 1, // Organic turbulent shell
+          layer: 1,
           seed: i * 0.137,
           radialScatter: 0.985 + (Math.random() * 0.085),
           size: 0.95 + (Math.random() * 0.65)
         });
       }
 
-      // 3. QUANTUM SINGULARITY ACCENT NODES (24 bright pinpoint stars inside the lattice)
+      // 3. QUANTUM SINGULARITY ACCENT NODES
       for (let i = 0; i < 24; i++) {
         const u = Math.random();
         const v = Math.random();
@@ -752,7 +744,7 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
           bx: rScale * Math.sin(phi) * Math.cos(theta),
           by: rScale * Math.cos(phi),
           bz: rScale * Math.sin(phi) * Math.sin(theta),
-          layer: 2, // Bright interior singularity node
+          layer: 2,
           seed: i * 1.7,
           size: 1.85 + (Math.random() * 0.45)
         });
@@ -772,7 +764,6 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
       sphereEnergy = Math.max(sphereEnergy, energyBoost);
     }
 
-    // Touch & Pointer Drag Rotation on the Quantum Sphere
     sphereCanvas.addEventListener('pointerdown', (e) => {
       isDraggingSphere = true;
       dragStartX = e.clientX;
@@ -794,7 +785,7 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
       rotX = Math.max(-1.25, Math.min(1.25, rotX + velX));
     });
 
-    sphereCanvas.addEventListener('pointerup', (e) => {
+    sphereCanvas.addEventListener('pointerup', () => {
       isDraggingSphere = false;
       const elapsed = performance.now() - pointerDownTime;
       if (elapsed < 220 && Math.hypot(velX, velY) < 0.02) {
@@ -809,7 +800,6 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
       const cy = height / 2;
       const baseRadius = Math.min(width, height) * 0.395;
 
-      // Pure #000000 OLED Clear
       sCtx.clearRect(0, 0, width, height);
 
       clockTime += 0.016 * sphereEnergy;
@@ -819,7 +809,6 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
         rotY += velY * sphereEnergy;
         rotX += velX * 0.92;
         velX *= 0.94;
-        // Maintain smooth base orbital rotation
         const baseSpin = 0.0034;
         velY += (baseSpin - velY) * 0.03;
       }
@@ -835,23 +824,19 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
       for (let i = 0; i < sphereParticles.length; i++) {
         const p = sphereParticles[i];
 
-        // 3D Rotation around Y then X
         let x1 = p.bx * cosY - p.bz * sinY;
         let z1 = p.bz * cosY + p.bx * sinY;
         let y1 = p.by * cosX - z1 * sinX;
         let z2 = z1 * cosX + p.by * sinX;
 
-        // Calculate 2D radial distance from center in normalized sphere units (0 = center, 1 = silhouette rim)
         const r2dNorm = Math.min(1.15, Math.hypot(x1, y1));
         const absNz = Math.abs(z2);
 
-        // Multi-harmonic 3D wave displacement (matches the organic undulating ridges in reference image)
         const waveA = Math.sin(x1 * 6.5 + y1 * 5.5 + clockTime * 1.4 + p.seed);
         const waveB = Math.cos(y1 * 8.0 - z2 * 6.0 - clockTime * 1.1);
         const waveC = Math.sin(z2 * 10.0 + x1 * 7.0 + clockTime * 0.9);
         const harmonicNoise = (waveA * 0.45 + waveB * 0.35 + waveC * 0.20);
 
-        // Optional tap ripple wave propagating from pole to equator
         let rippleOffset = 0;
         if (rippleActive) {
           const waveFront = timeSinceRipple * 1.35;
@@ -866,601 +851,4 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
         let dotSize = p.size;
 
         if (p.layer === 0) {
-          // LAYER 0: Inner Structured Dot-Matrix Grid
-          // Subtle internal curvature + strong Fresnel rim brightening at the silhouette edge
-          const internalUndulation = 1.0 + harmonicNoise * 0.028 * sphereEnergy + rippleOffset;
-          radialScale = internalUndulation;
-
-          // Fresnel limb brightening: points near the outer silhouette rim glow brightly; center grid stays refined
-          const limbFactor = Math.pow(Math.max(0, 1 - absNz), 2.15);
-          const depthDim = z2 > 0 ? 1.0 : 0.58; // Front hemisphere slightly crisper than back hemisphere
-          alpha = (0.13 + limbFactor * 0.68) * depthDim;
-          dotSize = 0.95 + limbFactor * 0.55;
-        } else if (p.layer === 1) {
-          // LAYER 1: Organic Turbulent Rim / Corona
-          // Strongly amplified along the circumference (`r2dNorm > 0.72`) to form the luminous white ridges
-          const rimConcentration = Math.pow(Math.min(1, r2dNorm), 2.4);
-          if (r2dNorm < 0.58 && (i % 3 !== 0)) continue; // Keep interior clean so the structured grid shows through
-
-          const ridgeTurbulence = harmonicNoise * (0.045 + 0.055 * rimConcentration) * sphereEnergy;
-          radialScale = (p.radialScatter || 1.0) + ridgeTurbulence + rippleOffset * 1.3;
-
-          const limbGlow = Math.pow(Math.max(0, 1 - absNz * 0.85), 2.6);
-          alpha = 0.08 + limbGlow * 0.86;
-          dotSize = p.size * (0.85 + limbGlow * 0.65);
-        } else {
-          // LAYER 2: Quantum Singularity Interior Nodes (Bright white pinpoint stars inside the dark core)
-          radialScale = 1.0 + harmonicNoise * 0.02 + rippleOffset;
-          const twinkle = 0.78 + 0.22 * Math.sin(clockTime * 2.5 + p.seed);
-          alpha = twinkle;
-          dotSize = p.size;
-        }
-
-        const px = cx + x1 * baseRadius * radialScale;
-        const py = cy + y1 * baseRadius * radialScale;
-
-        sCtx.fillStyle = `rgba(255, 255, 255, ${Math.min(0.98, Math.max(0.05, alpha)).toFixed(3)})`;
-        sCtx.beginPath();
-        sCtx.arc(px, py, dotSize, 0, Math.PI * 2);
-        sCtx.fill();
-      }
-
-      requestAnimationFrame(renderQuantumSphereFrame);
-    }
-
-    /*****************************************************************
-     * 3. DYNAMIC APPLE TOUCH ICON GENERATOR (MATCHING QUANTUM SPHERE)
-     *****************************************************************/
-    function generateQuantumSphereTouchIcon() {
-      try {
-        const iconCanvas = document.createElement('canvas');
-        iconCanvas.width = 180;
-        iconCanvas.height = 180;
-        const ctx = iconCanvas.getContext('2d');
-
-        // Pure OLED Black Background
-        ctx.fillStyle = '#000000';
-        ctx.fillRect(0, 0, 180, 180);
-
-        const cx = 90;
-        const cy = 90;
-        const R = 64;
-
-        // Render structured inner dot-matrix + luminous turbulent rim
-        for (let i = 0; i < sphereParticles.length; i++) {
-          const p = sphereParticles[i];
-          const r2d = Math.hypot(p.bx, p.by);
-          const absZ = Math.abs(p.bz);
-          const noise = Math.sin(p.bx * 7 + p.by * 6 + p.seed) * 0.05;
-          const scale = (p.layer === 1 ? 1.02 + noise : 1.0 + noise * 0.4);
-          const limb = Math.pow(Math.max(0, 1 - absZ), 2.1);
-          const alpha = p.layer === 2 ? 0.95 : Math.min(0.95, 0.14 + limb * 0.78 + (r2d > 0.85 ? 0.25 : 0));
-
-          ctx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
-          ctx.beginPath();
-          ctx.arc(cx + p.bx * R * scale, cy + p.by * R * scale, p.layer === 2 ? 1.6 : 0.95, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        const dataUrl = iconCanvas.toDataURL('image/png');
-        document.getElementById('apple-touch-icon-link').href = dataUrl;
-        document.getElementById('favicon-link').href = dataUrl;
-      } catch (e) {
-        console.warn('Touch icon render skipped:', e);
-      }
-    }
-
-    /*****************************************************************
-     * 4. VIEW 1: SLATE RENDERER & ONE-TAP CLIPBOARD ACTIONS
-     *****************************************************************/
-    function renderSlateView(data) {
-    const container = document.getElementById('slate-cards-list');
-    if (!container || !data || !data.candidates) return;
-
-    container.innerHTML = data.candidates.slice(0, 3).map((item, index) => `
-        <div class="glass-surface p-4 rounded-xl flex flex-col gap-2" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
-            <div class="flex justify-between items-center">
-                <span class="font-bold text-sm">#${index + 1} ${item.ticker} <span class="opacity-70 text-xs font-normal">(${item.theme})</span></span>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-white/10">Score: ${item.mos_score}</span>
-            </div>
-            <div class="flex justify-between text-xs opacity-80 mt-1">
-                <span>Limit: $${item.limit_price}</span>
-                <span>Spot: $${item.spot_price}</span>
-            </div>
-        </div>
-    `).join('');
-}
-    /*****************************************************************
-     * 5. VIEW 2: VAULT & S&P 500 CRASH OVERRIDE SIMULATOR
-     *****************************************************************/
-    function renderVaultView() {
-      const storedVault = localStorage.getItem('ve_minimal_vault_usd');
-      if (storedVault !== null && !isNaN(parseFloat(storedVault))) {
-        vaultReserveUSD = parseFloat(storedVault);
-      }
-
-      const halfTranche = +(vaultReserveUSD * 0.5).toFixed(2);
-      const weeksReserved = Math.max(0, Math.round(vaultReserveUSD / 60));
-
-      document.getElementById('vault-balance-display').textContent =
-        `$${vaultReserveUSD.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-      document.getElementById('vault-tranche-display').textContent =
-        `+$${halfTranche.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-      document.getElementById('vault-weeks-display').textContent =
-        `${weeksReserved} Week${weeksReserved === 1 ? '' : 's'} Reserved`;
-
-      const sliderVal = document.getElementById('drawdown-slider').value;
-      updateDrawdownSimulator(sliderVal);
-    }
-
-    function adjustVaultBalance(delta) {
-      vaultReserveUSD = Math.max(0, +(vaultReserveUSD + delta).toFixed(2));
-      localStorage.setItem('ve_minimal_vault_usd', String(vaultReserveUSD));
-      renderVaultView();
-      triggerSphereRipple(1.5);
-      showCapsuleToast(`Vault Reserve: $${vaultReserveUSD.toFixed(2)}`);
-    }
-
-    function toggleVaultCustomEdit() {
-      const row = document.getElementById('vault-custom-row');
-      row.classList.toggle('hidden');
-      document.getElementById('vault-custom-input').value = vaultReserveUSD;
-    }
-
-    function saveCustomVaultBalance() {
-      const val = parseFloat(document.getElementById('vault-custom-input').value);
-      if (!isNaN(val) && val >= 0) {
-        vaultReserveUSD = +val.toFixed(2);
-        localStorage.setItem('ve_minimal_vault_usd', String(vaultReserveUSD));
-        document.getElementById('vault-custom-row').classList.add('hidden');
-        renderVaultView();
-        triggerSphereRipple(1.6);
-        showCapsuleToast(`Vault Set: $${vaultReserveUSD.toFixed(2)}`);
-      }
-    }
-
-    function updateDrawdownSimulator(val) {
-      const drawdown = parseFloat(val);
-      const isOverride = drawdown <= -15.0;
-
-      const cardEl = document.getElementById('crash-gate-card');
-      const pillEl = document.getElementById('crash-gate-pill');
-      const readoutEl = document.getElementById('drawdown-readout');
-      const breakdownEl = document.getElementById('drawdown-breakdown');
-      const totalEl = document.getElementById('drawdown-total-deploy');
-      const headerRegimeEl = document.getElementById('header-regime-label');
-
-      readoutEl.textContent = `${drawdown.toFixed(1)}%`;
-
-      if (isOverride) {
-        const vaultRelease = +(vaultReserveUSD * 0.5).toFixed(2);
-        const totalDeploy = +(340.00 + vaultRelease).toFixed(2);
-
-        cardEl.className = 'glass-surface-active p-5 space-y-4';
-        pillEl.className = 'px-2.5 py-1 rounded-full bg-white text-black font-mono text-[10px] font-semibold uppercase tracking-wider';
-        pillEl.textContent = 'Crash Override Active';
-        headerRegimeEl.textContent = 'Crash Override (-15%)';
-        headerRegimeEl.className = 'text-[11px] font-mono text-white font-medium';
-
-        breakdownEl.textContent = `$340.00 Base + $${vaultRelease.toFixed(2)} (50% Vault)`;
-        totalEl.textContent = `$${totalDeploy.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-        targetSphereEnergy = 1.95;
-      } else {
-        cardEl.className = 'glass-surface p-5 space-y-4';
-        pillEl.className = 'px-2.5 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-[#8E8E93] uppercase tracking-wider';
-        pillEl.textContent = 'Standby';
-        headerRegimeEl.textContent = 'Normal Regime';
-        headerRegimeEl.className = 'text-[11px] font-mono text-[#8E8E93]';
-
-        breakdownEl.textContent = `$340.00 Base + $0.00 Vault (+$60.00 Saved)`;
-        totalEl.textContent = `$340.00`;
-
-        targetSphereEnergy = 1.0;
-      }
-    }
-
-    /*****************************************************************
-     * 6. VIEW 3: ELITE 15 UNIVERSE RENDERER
-     *****************************************************************/
-    function setUniverseFilter(category) {
-      activeUniverseCategory = category;
-      document.querySelectorAll('.u-pill').forEach(btn => {
-        btn.className = 'u-pill px-3 py-1 rounded-full bg-white/5 text-[#8E8E93] border border-white/10 shrink-0';
-      });
-      const activeBtn = document.getElementById(`u-pill-${category}`);
-      if (activeBtn) {
-        activeBtn.className = 'u-pill px-3 py-1 rounded-full bg-white text-black font-medium shrink-0';
-      }
-      renderUniverseList();
-    }
-
-    function renderUniverseList() {
-      const query = (document.getElementById('universe-search').value || '').toLowerCase().trim();
-      const container = document.getElementById('universe-list-container');
-      container.innerHTML = '';
-
-      const filtered = ELITE_15_UNIVERSE.filter(item => {
-        const matchCat = activeUniverseCategory === 'All' || item.category === activeUniverseCategory;
-        const matchQuery = !query ||
-          item.ticker.toLowerCase().includes(query) ||
-          item.name.toLowerCase().includes(query) ||
-          item.role.toLowerCase().includes(query) ||
-          item.category.toLowerCase().includes(query);
-        return matchCat && matchQuery;
-      });
-
-      filtered.forEach(item => {
-        const inActiveSlate = activeSlate.candidates.find(c => c.ticker === item.ticker);
-        const rowHtml = `
-          <div class="p-4 flex items-center justify-between gap-3">
-            <div class="space-y-0.5">
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-sm font-semibold text-white">${item.ticker}</span>
-                <span class="text-xs text-[#8E8E93]">${item.name}</span>
-                ${inActiveSlate ? `<span class="px-2 py-0.5 rounded-full bg-white text-black font-mono text-[9px] font-semibold">W43 #${inActiveSlate.rank}</span>` : ''}
-              </div>
-              <p class="text-[11px] text-[#8E8E93]">${item.role}</p>
-            </div>
-            <span class="shrink-0 font-mono text-[10px] text-[#8E8E93] px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
-              ${item.category}
-            </span>
-          </div>
-        `;
-        container.insertAdjacentHTML('beforeend', rowHtml);
-      });
-    }
-
-    /*****************************************************************
-     * 7. VIEW 4: SYSTEM UPLINK (`ntfy.sh` + GITHUB DISPATCH)
-     *****************************************************************/
-    function loadSystemConfig() {
-      document.getElementById('cfg-ntfy-topic').value = localStorage.getItem('ve_minimal_ntfy_topic') || '';
-      document.getElementById('cfg-gh-repo').value = localStorage.getItem('ve_minimal_gh_repo') || '';
-      document.getElementById('cfg-gh-pat').value = localStorage.getItem('ve_minimal_gh_pat') || '';
-
-      const cachedSlate = localStorage.getItem('ve_minimal_cached_slate');
-      if (cachedSlate) {
-        try {
-          activeSlate = JSON.parse(cachedSlate);
-        } catch (e) {
-          activeSlate = JSON.parse(JSON.stringify(DEFAULT_W43_SLATE));
-        }
-      }
-    }
-
-    function saveSystemConfig() {
-      const topic = document.getElementById('cfg-ntfy-topic').value.trim();
-      const repo = document.getElementById('cfg-gh-repo').value.trim();
-      const pat = document.getElementById('cfg-gh-pat').value.trim();
-
-      localStorage.setItem('ve_minimal_ntfy_topic', topic);
-      localStorage.setItem('ve_minimal_gh_repo', repo);
-      localStorage.setItem('ve_minimal_gh_pat', pat);
-
-      triggerSphereRipple(1.7);
-      showCapsuleToast('System Uplink Saved');
-    }
-
-    async function pollNtfyStream() {
-      const topic = (localStorage.getItem('ve_minimal_ntfy_topic') || document.getElementById('cfg-ntfy-topic').value || '').trim();
-      if (!topic) {
-        showCapsuleToast('Enter ntfy.sh Topic in System');
-        switchView('system');
-        return;
-      }
-
-      const spinner = document.getElementById('sync-spinner');
-      spinner.classList.add('animate-spin');
-      targetSphereEnergy = 2.1;
-      document.getElementById('hero-sub-status').textContent = `Polling ntfy.sh/${topic}...`;
-
-      try {
-    const res = await fetch('https://raw.githubusercontent.com/osaul23/fridayvalueengine/main/value_engine_state.json', {
-      cache: 'no-store'
-    });
-    if (!res.ok) throw new Error('Failed to fetch state');
-    
-    const state = await res.json();
-    if (state && state.candidates && state.candidates.length > 0) {
-      activeSlate = {
-        cycle: `Week ${state.last_run_week}`,
-        candidates: state.candidates,
-        dryPowder: state.dry_powder_usd,
-        holdings: state.holdings_usd
-      };
-      localStorage.setItem('ve_minimal_cached_slate', JSON.stringify(activeSlate));
-      renderSlateView();
-      renderUniverseList();
-      switchView('slate');
-      triggerSphereRipple(2.2);
-      showCapsuleToast(`Synced Week ${state.last_run_week}`);
-      document.getElementById('hero-sub-status').textContent = `Synced live state · Week ${state.last_run_week}`;
-    } else {
-      showCapsuleToast('No candidates found in state');
-    }
-} catch (err) {
-    console.error("Slate sync failed:", err);
-    showCapsuleToast('Sync Failed');
-}
-
-        const parsed = parseNtfyBroadcast(rawText);
-        if (parsed && parsed.candidates.length > 0) {
-          activeSlate = parsed;
-          localStorage.setItem('ve_minimal_cached_slate', JSON.stringify(activeSlate));
-          renderSlateView();
-          renderUniverseList();
-          switchView('slate');
-          triggerSphereRipple(2.2);
-          showCapsuleToast(`Synced ${activeSlate.cycle}`);
-          document.getElementById('hero-sub-status').textContent = `Synced live broadcast · ${activeSlate.cycle}`;
-        } else {
-          activeSlate.rawStream = rawText;
-          renderSlateView();
-          showCapsuleToast('Raw Broadcast Updated');
-        }
-      } catch (err) {
-        showCapsuleToast(`Sync Error: ${err.message}`);
-        document.getElementById('hero-sub-status').textContent = 'Sync failed · Showing cached slate';
-      } finally {
-        spinner.classList.remove('animate-spin');
-        targetSphereEnergy = 1.0;
-      }
-    }
-
-    function parseNtfyBroadcast(rawText) {
-      const weekMatch = rawText.match(/Week:\s*([0-9A-Za-z-_]+)/i) || rawText.match(/202\d-W\d+/i);
-      const cycle = weekMatch ? (weekMatch[1] || weekMatch[0]) : 'LIVE';
-
-      const lines = rawText.split(/\r?\n/);
-      const candidates = [];
-      let current = null;
-
-      for (const line of lines) {
-        const headerMatch = line.match(/#([123])\s+([A-Z]{1,5})\s*(?:\(([^)]+)\))?\s*\|\s*Score:\s*([0-9.]+)/i);
-        if (headerMatch) {
-          if (current) candidates.push(current);
-          const rank = parseInt(headerMatch[1], 10);
-          const ticker = headerMatch[2].toUpperCase();
-          const uInfo = UNIVERSE_BY_TICKER[ticker] || { name: `${ticker} Corp.`, category: 'AI_Infra' };
-
-          current = {
-            rank,
-            ticker,
-            name: uInfo.name,
-            theme: headerMatch[3] || uInfo.category,
-            score: headerMatch[4],
-            limit: '0.00',
-            spot: '0.00',
-            allocation: '$340.00',
-            shares: 'Active',
-            roleLabel: rank === 1
-              ? 'Primary Target · 100% Conviction'
-              : rank === 2
-                ? 'Fallback #1 · Slippage Guard'
-                : 'Fallback #2 · Secondary Guard'
-          };
-
-          const inlineLim = line.match(/Limit:\s*\$?([0-9.]+)/i);
-          const inlineSpot = line.match(/(?:Spot|Price):\s*\$?([0-9.]+)/i);
-          if (inlineLim) current.limit = inlineLim[1];
-          if (inlineSpot) current.spot = inlineSpot[1];
-          continue;
-        }
-
-        if (current) {
-          const limSpot = line.match(/Limit:\s*\$?([0-9.]+)\s*\(Spot:\s*\$?([0-9.]+)\)/i);
-          if (limSpot) {
-            current.limit = limSpot[1];
-            current.spot = limSpot[2];
-          }
-          const ordMatch = line.match(/Order:\s*(\$[0-9.]+)\s*\(([^)]+)\)/i);
-          if (ordMatch) {
-            current.allocation = ordMatch[1];
-            current.shares = ordMatch[2];
-          }
-        }
-      }
-      if (current) candidates.push(current);
-
-      const isSplit = /60\/40/i.test(rawText) && !/bypassed/i.test(rawText);
-      return {
-        cycle,
-        gateTitle: isSplit ? '60/40 Cross-Theme Split Active' : '100% Single-Target Allocation',
-        gateDesc: DEFAULT_W43_SLATE.gateDesc,
-        rawStream: rawText,
-        candidates: candidates.slice(0, 3)
-      };
-    }
-
-    async function triggerLiveGitHubScan() {
-      const repoPath = (localStorage.getItem('ve_minimal_gh_repo') || document.getElementById('cfg-gh-repo').value || '').trim();
-      const pat = (localStorage.getItem('ve_minimal_gh_pat') || document.getElementById('cfg-gh-pat').value || '').trim();
-
-      if (!repoPath || !pat || !repoPath.includes('/')) {
-        showCapsuleToast('Configure GitHub Repo & PAT in System');
-        switchView('system');
-        return;
-      }
-
-      const overlay = document.getElementById('sphere-scan-overlay');
-      const timerEl = document.getElementById('sphere-scan-timer');
-      const labelEl = document.getElementById('sphere-scan-label');
-
-      overlay.classList.remove('opacity-0');
-      overlay.classList.add('opacity-100');
-      timerEl.textContent = '35s';
-      labelEl.textContent = 'Dispatching';
-      targetSphereEnergy = 2.6;
-
-      try {
-        const [owner, repo] = repoPath.split('/');
-        const res = await fetch(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/actions/workflows/friday_deployment.yml/dispatches`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${pat}`,
-            'Accept': 'application/vnd.github+json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ ref: 'main' })
-        });
-
-        if (res.status !== 204 && !res.ok) {
-          throw new Error(`HTTP ${res.status}`);
-        }
-
-        showCapsuleToast('GitHub Scan Dispatched');
-        let remaining = 35;
-        if (scanTimerInterval) clearInterval(scanTimerInterval);
-
-        scanTimerInterval = setInterval(() => {
-          remaining -= 1;
-          timerEl.textContent = `${remaining}s`;
-          if (remaining === 24) labelEl.textContent = 'Scoring Moats';
-          if (remaining === 12) labelEl.textContent = 'ATR Limit Calc';
-          if (remaining === 4) labelEl.textContent = 'Pushing Alert';
-
-          if (remaining <= 0) {
-            clearInterval(scanTimerInterval);
-            overlay.classList.remove('opacity-100');
-            overlay.classList.add('opacity-0');
-            targetSphereEnergy = 1.0;
-            pollNtfyStream();
-          }
-        }, 1000);
-      } catch (err) {
-        overlay.classList.remove('opacity-100');
-        overlay.classList.add('opacity-0');
-        targetSphereEnergy = 1.0;
-        showCapsuleToast(`Dispatch Error: ${err.message}`);
-      }
-    }
-
-    function restoreVerifiedWeek43() {
-      activeSlate = JSON.parse(JSON.stringify(DEFAULT_W43_SLATE));
-      localStorage.setItem('ve_minimal_cached_slate', JSON.stringify(activeSlate));
-      renderSlateView();
-      renderUniverseList();
-      switchView('slate');
-      triggerSphereRipple(1.8);
-      showCapsuleToast('Restored Verified Week 43');
-    }
-
-    /*****************************************************************
-     * 8. CLIPBOARD, SOURCE EXPORT & NAVIGATION HELPERS
-     *****************************************************************/
-    function copyTextToClipboard(text, message) {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.left = '-9999px';
-      document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      try {
-        document.execCommand('copy');
-        triggerSphereRipple(1.75);
-        showCapsuleToast(message);
-      } catch (e) {
-        showCapsuleToast('Copy Failed');
-      }
-      document.body.removeChild(ta);
-    }
-
-    function copyLimitToClipboard(limitPrice, ticker) {
-      const numeric = String(limitPrice).replace(/[^0-9.]/g, '');
-      copyTextToClipboard(numeric, `Copied ${ticker} Limit · $${numeric}`);
-    }
-
-    function copyFullTicketLine(ticker, limitPrice, allocation, shares) {
-      const summary = `${ticker} | Limit: $${limitPrice} | Order: ${allocation} (${shares})`;
-      copyTextToClipboard(summary, `Copied ${ticker} Order Ticket`);
-    }
-
-    function copyRawBroadcast() {
-      copyTextToClipboard(activeSlate.rawStream, 'Copied Raw Telemetry Stream');
-    }
-
-    function copyCompleteHtmlSource() {
-      const fullSource = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      copyTextToClipboard(fullSource, 'Copied Complete index.html');
-    }
-
-    function toggleSourceInspector() {
-      const box = document.getElementById('source-inspector-box');
-      const area = document.getElementById('source-inspector-textarea');
-      box.classList.toggle('hidden');
-      if (!box.classList.contains('hidden')) {
-        area.value = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      }
-    }
-
-    function toggleRawPayloadDrawer() {
-      const drawer = document.getElementById('raw-payload-drawer');
-      const label = document.getElementById('raw-drawer-label');
-      drawer.classList.toggle('hidden');
-      label.textContent = drawer.classList.contains('hidden') ? 'Inspect' : 'Hide';
-    }
-
-    function togglePatVisibility() {
-      const input = document.getElementById('cfg-gh-pat');
-      const btn = document.getElementById('pat-toggle-label');
-      if (input.type === 'password') {
-        input.type = 'text';
-        btn.textContent = 'Hide';
-      } else {
-        input.type = 'password';
-        btn.textContent = 'Show';
-      }
-    }
-
-    function switchView(viewName) {
-      const views = ['slate', 'vault', 'universe', 'system'];
-      views.forEach(v => {
-        const panel = document.getElementById(`view-${v}`);
-        const seg = document.getElementById(`seg-${v}`);
-        if (v === viewName) {
-          panel.classList.remove('hidden');
-          seg.classList.add('active');
-        } else {
-          panel.classList.add('hidden');
-          seg.classList.remove('active');
-        }
-      });
-    }
-
-    let capsuleToastTimeout = null;
-    function showCapsuleToast(message) {
-      const toast = document.getElementById('capsule-toast');
-      const msgEl = document.getElementById('toast-message');
-      msgEl.textContent = message;
-
-      toast.classList.remove('opacity-0', '-translate-y-3');
-      toast.classList.add('opacity-100', 'translate-y-0');
-
-      if (capsuleToastTimeout) clearTimeout(capsuleToastTimeout);
-      capsuleToastTimeout = setTimeout(() => {
-        toast.classList.remove('opacity-100', 'translate-y-0');
-        toast.classList.add('opacity-0', '-translate-y-3');
-      }, 2200);
-    }
-
-    /*****************************************************************
-     * 9. INITIALIZE ON WINDOW LOAD
-     *****************************************************************/
-    window.onload = function () {
-      buildQuantumSphereParticles();
-      resizeSphereCanvas();
-      window.addEventListener('resize', resizeSphereCanvas);
-
-      generateQuantumSphereTouchIcon();
-      loadSystemConfig();
-      renderSlateView();
-      renderVaultView();
-      renderUniverseList();
-
-      renderQuantumSphereFrame();
-    };
-  </script>
-</body>
-</html>
+          const internalUndulation = 
