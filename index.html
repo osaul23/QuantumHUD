@@ -953,39 +953,19 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
     /*****************************************************************
      * 4. VIEW 1: SLATE RENDERER & ONE-TAP CLIPBOARD ACTIONS
      *****************************************************************/
-    function renderSlateView() {
-    const container = document.getElementById('slate-cards-container'); // or your target list element
-    if (!container || !activeSlate || !activeSlate.candidates) return;
+    function renderSlateView(data) {
+    const container = document.getElementById('slate-cards-list');
+    if (!container || !data || !data.candidates) return;
 
-    container.innerHTML = activeSlate.candidates.map(c => `
-        <div class="target-card bg-zinc-900 border border-zinc-800 rounded-2xl p-4 mb-3">
-            <div class="flex justify-between items-center mb-2">
-                <span class="text-xs uppercase tracking-wider text-zinc-400">#${c.rank} · ${c.roleLabel}</span>
-                <span class="text-xs font-mono bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded-full">${c.theme}</span>
+    container.innerHTML = data.candidates.slice(0, 3).map((item, index) => `
+        <div class="glass-surface p-4 rounded-xl flex flex-col gap-2" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-sm">#${index + 1} ${item.ticker} <span class="opacity-70 text-xs font-normal">(${item.theme})</span></span>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-white/10">Score: ${item.mos_score}</span>
             </div>
-            <div class="flex justify-between items-baseline mb-3">
-                <div>
-                    <h2 class="text-2xl font-bold tracking-tight text-white">${c.ticker}</h2>
-                    <p class="text-xs text-zinc-400">${c.name}</p>
-                </div>
-                <div class="text-right">
-                    <div class="text-xs text-zinc-500 uppercase">Score</div>
-                    <div class="text-xl font-mono font-bold text-white">${c.score}</div>
-                </div>
-            </div>
-            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-zinc-800/80 text-xs font-mono">
-                <div>
-                    <div class="text-zinc-500">LIMIT PRICE</div>
-                    <div class="text-white font-semibold">$${c.limit}</div>
-                </div>
-                <div>
-                    <div class="text-zinc-500">SPOT REF</div>
-                    <div class="text-zinc-300">$${c.spot}</div>
-                </div>
-                <div>
-                    <div class="text-zinc-500">ORDER SIZE</div>
-                    <div class="text-emerald-400 font-semibold">${c.allocation}</div>
-                </div>
+            <div class="flex justify-between text-xs opacity-80 mt-1">
+                <span>Limit: $${item.limit_price}</span>
+                <span>Spot: $${item.spot_price}</span>
             </div>
         </div>
     `).join('');
