@@ -954,95 +954,42 @@ Limit: $330.19 (Spot: $336.07) | Order: $340.00 (1.0297 shs) | Fallback #2 (Seco
      * 4. VIEW 1: SLATE RENDERER & ONE-TAP CLIPBOARD ACTIONS
      *****************************************************************/
     function renderSlateView() {
-      const primary = activeSlate.candidates[0] || DEFAULT_W43_SLATE.candidates[0];
+    const container = document.getElementById('slate-cards-container'); // or your target list element
+    if (!container || !activeSlate || !activeSlate.candidates) return;
 
-      // Update Top Header & Hero Floating Readout
-      document.getElementById('header-cycle-badge').textContent = activeSlate.cycle || '2026-W43';
-      document.getElementById('hero-primary-ticker').textContent = primary.ticker;
-      document.getElementById('hero-primary-score').textContent = primary.score;
-      document.getElementById('hero-primary-limit').textContent = `$${primary.limit}`;
-
-      // Update Routing Gate Banner
-      document.getElementById('routing-gate-title').textContent = activeSlate.gateTitle || '100% Single-Target Allocation';
-      document.getElementById('routing-gate-desc').textContent = activeSlate.gateDesc || DEFAULT_W43_SLATE.gateDesc;
-      document.getElementById('raw-payload-pre').textContent = activeSlate.rawStream || DEFAULT_W43_RAW_STREAM;
-
-      const listEl = document.getElementById('slate-cards-list');
-      listEl.innerHTML = '';
-
-      activeSlate.candidates.forEach((cand, idx) => {
-        const isPrimary = idx === 0;
-        const cardClass = isPrimary ? 'glass-surface-active' : 'glass-surface';
-        const spreadPct = (
-          ((parseFloat(cand.limit) - parseFloat(cand.spot)) / parseFloat(cand.spot)) * 100
-        ).toFixed(2);
-
-        const html = `
-          <div class="${cardClass} p-5 space-y-4">
-            <!-- Top Row: Rank, Ticker, Moat Name & Conviction Score -->
-            <div class="flex items-start justify-between gap-3">
-              <div class="space-y-1">
-                <div class="flex items-center gap-2">
-                  <span class="font-mono text-[10px] uppercase tracking-wider ${isPrimary ? 'text-white font-semibold' : 'text-[#8E8E93]'}">
-                    #${cand.rank} · ${cand.roleLabel}
-                  </span>
+    container.innerHTML = activeSlate.candidates.map(c => `
+        <div class="target-card bg-zinc-900 border border-zinc-800 rounded-2xl p-4 mb-3">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs uppercase tracking-wider text-zinc-400">#${c.rank} · ${c.roleLabel}</span>
+                <span class="text-xs font-mono bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded-full">${c.theme}</span>
+            </div>
+            <div class="flex justify-between items-baseline mb-3">
+                <div>
+                    <h2 class="text-2xl font-bold tracking-tight text-white">${c.ticker}</h2>
+                    <p class="text-xs text-zinc-400">${c.name}</p>
                 </div>
-                <div class="flex items-baseline gap-2.5 pt-0.5">
-                  <span class="text-2xl font-semibold tracking-tight text-white">${cand.ticker}</span>
-                  <span class="text-xs text-[#8E8E93]">${cand.name}</span>
-                  <span class="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-[#8E8E93]">${cand.theme}</span>
+                <div class="text-right">
+                    <div class="text-xs text-zinc-500 uppercase">Score</div>
+                    <div class="text-xl font-mono font-bold text-white">${c.score}</div>
                 </div>
-              </div>
-
-              <div class="text-right font-mono tabular shrink-0">
-                <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">Score</div>
-                <div class="text-xl font-semibold text-white mt-0.5">${cand.score}</div>
-              </div>
             </div>
-
-            <!-- Middle Telemetry Row: Limit Price, Spot Reference, Allocation -->
-            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-white/10 font-mono tabular">
-              <div>
-                <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">Limit Price</div>
-                <div class="text-sm font-semibold text-white mt-0.5">$${cand.limit}</div>
-                <div class="text-[10px] text-[#8E8E93]">${spreadPct}% ATR</div>
-              </div>
-
-              <div>
-                <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">Spot Ref</div>
-                <div class="text-sm font-medium text-[#8E8E93] mt-0.5">$${cand.spot}</div>
-                <div class="text-[10px] text-[#48484A]">Close</div>
-              </div>
-
-              <div class="text-right">
-                <div class="text-[10px] uppercase tracking-wider text-[#8E8E93]">Order Size</div>
-                <div class="text-sm font-semibold text-white mt-0.5">${cand.allocation}</div>
-                <div class="text-[10px] text-[#8E8E93]">${cand.shares}</div>
-              </div>
+            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-zinc-800/80 text-xs font-mono">
+                <div>
+                    <div class="text-zinc-500">LIMIT PRICE</div>
+                    <div class="text-white font-semibold">$${c.limit}</div>
+                </div>
+                <div>
+                    <div class="text-zinc-500">SPOT REF</div>
+                    <div class="text-zinc-300">$${c.spot}</div>
+                </div>
+                <div>
+                    <div class="text-zinc-500">ORDER SIZE</div>
+                    <div class="text-emerald-400 font-semibold">${c.allocation}</div>
+                </div>
             </div>
-
-            <!-- Bottom Action Row: One-Tap Limit Copy for Robinhood UK -->
-            <div class="flex items-center gap-2 pt-1">
-              <button
-                onclick="copyLimitToClipboard('${cand.limit}', '${cand.ticker}')"
-                class="pressable flex-1 py-2.5 px-4 rounded-full ${isPrimary ? 'bg-white text-black font-semibold' : 'bg-white/10 text-white font-medium'} text-xs tracking-tight flex items-center justify-center gap-2 font-mono tabular"
-              >
-                <span>Copy $${cand.limit}</span>
-              </button>
-
-              <button
-                onclick="copyFullTicketLine('${cand.ticker}', '${cand.limit}', '${cand.allocation}', '${cand.shares}')"
-                class="pressable py-2.5 px-4 rounded-full bg-white/5 border border-white/10 text-xs text-[#8E8E93] hover:text-white font-medium"
-              >
-                Copy Ticket
-              </button>
-            </div>
-          </div>
-        `;
-        listEl.insertAdjacentHTML('beforeend', html);
-      });
-    }
-
+        </div>
+    `).join('');
+}
     /*****************************************************************
      * 5. VIEW 2: VAULT & S&P 500 CRASH OVERRIDE SIMULATOR
      *****************************************************************/
